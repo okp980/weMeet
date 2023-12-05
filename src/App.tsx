@@ -65,6 +65,20 @@ function App(): JSX.Element {
     }
   };
 
+  const signOut = async () => {
+    try {
+      const signout = await GoogleSignin.signOut();
+      console.log(signout);
+      console.log('ssigned out');
+
+      // Remember to remove the user from your app's state as well
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // signOut();
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
