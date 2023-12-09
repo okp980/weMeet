@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         primary: '#E94057',
       },
+      fontFamily: {
+        noto: ['NotoSans'],
+      },
     },
   },
   plugins: [],
