@@ -71,7 +71,7 @@ const SignIn = () => {
           }}
           className=" justify-between">
           <View style={styles.line} />
-          <Text>sign up with</Text>
+          <Text className="text-primary">sign up with</Text>
           <View style={styles.line} />
         </View>
         <View

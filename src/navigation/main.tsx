@@ -1,12 +1,18 @@
-import {View, Text, SafeAreaView, StatusBar} from 'react-native';
+import {SafeAreaView, StatusBar} from 'react-native';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {
+  NavigationContainer,
+  useNavigationContainerRef,
+} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SignIn} from '../screens';
+import {useFlipper} from '@react-navigation/devtools';
 
 const Stack = createNativeStackNavigator();
 
 const Main = () => {
+  const navigationRef = useNavigationContainerRef();
+  useFlipper(navigationRef);
   return (
     <SafeAreaView style={{flex: 1}}>
       <NavigationContainer>
