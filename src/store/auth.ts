@@ -11,16 +11,18 @@ const slice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    addToken: (state, {payload: {token}}: AuthPayload) => {
+    authenticate: (state, {payload: {token, onboard_status}}: AuthPayload) => {
       state.token = token;
+      state.onboard_status = onboard_status;
     },
-    clearToken: state => {
+    clearAuth: state => {
       state.token = null;
+      state.onboard_status = null;
     },
   },
 });
 
-export const {addToken, clearToken} = slice.actions;
+export const {authenticate, clearAuth} = slice.actions;
 export const selectAuth = (state: RootState) => state.auth.token;
 export const selectOboardStatus = (state: RootState) =>
   state.auth.onboard_status;

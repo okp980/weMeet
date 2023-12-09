@@ -1,4 +1,4 @@
-import {Text, TouchableOpacity, View} from 'react-native';
+import {ActivityIndicator, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {
   GoogleSignin,
@@ -6,15 +6,27 @@ import {
 } from '@react-native-google-signin/google-signin';
 
 import {Svg} from '../../constants';
+import {useSignInWithSocialMutation} from '../../services/modules/auth';
+import {OnboardStatus, SocialProvider} from '../../types/auth';
+import {useAuth} from '../../hooks';
 
 const {Apple, Facebook, Google, Logo} = Svg;
 
 const SignIn = () => {
+  const [signInWithSocial, {isLoading}] = useSignInWithSocialMutation();
+  const {authenticateUser} = useAuth();
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
-      console.log(userInfo);
+      // const response = await signInWithSocial({
+      //   token: userInfo.idToken!,
+      //   provider: SocialProvider.GOOGLE,
+      // }).unwrap();
+      // authenticateUser(response.token, response.onboard_status);
+
+      // TODO:REMOVE THIS
+      authenticateUser(userInfo.idToken!, OnboardStatus.BIO_DATA);
     } catch (error: any) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
@@ -45,6 +57,14 @@ const SignIn = () => {
   };
 
   // signOut();
+
+  if (isLoading) {
+    return (
+      <View className="flex-1 items-center justify-center">
+        <ActivityIndicator size={'large'} />
+      </View>
+    );
+  }
   return (
     <View className="flex-1 px-10 items-center">
       <View className="flex-[.7] justify-center items-center w-full">

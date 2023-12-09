@@ -1,13 +1,17 @@
-import {AuthResponse} from '../../types/auth';
+import {AuthResponse, SignInWithSocialBody} from '../../types/auth';
 import {api} from '../api';
 
 export const authApi = api.injectEndpoints({
   endpoints: build => ({
-    signInWithSocial: build.query<AuthResponse, void>({
-      query: () => '/auth/signin-social',
+    signInWithSocial: build.mutation<AuthResponse, SignInWithSocialBody>({
+      query: body => ({
+        url: '/auth/signin-social',
+        method: 'POST',
+        body,
+      }),
     }),
   }),
   overrideExisting: false,
 });
 
-export const {useSignInWithSocialQuery} = authApi;
+export const {useSignInWithSocialMutation} = authApi;

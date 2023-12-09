@@ -9,22 +9,29 @@ import {useFlipper} from '@react-navigation/devtools';
 import AuthNavigation from './auth/Auth';
 import HomeNavigation from './home/HomeNavigation';
 import {useAuth} from '../hooks';
+import {OnboardStatus} from '../types/auth';
+import OnboardingNavigation from './onboarding/OnboardingNavigation';
 
 const Stack = createNativeStackNavigator();
 
 const Main = () => {
   const navigationRef = useNavigationContainerRef();
-  const {token} = useAuth();
+  const {token, onboard_status} = useAuth();
   useFlipper(navigationRef);
   return (
     <SafeAreaView style={{flex: 1}}>
       <NavigationContainer>
-        <StatusBar barStyle={'light-content'} />
+        <StatusBar barStyle={'dark-content'} />
         <Stack.Navigator
           initialRouteName="AuthNavigation"
           screenOptions={{headerShown: false}}>
-          {token ? (
+          {token && onboard_status === OnboardStatus.COMPLETE ? (
             <Stack.Screen name="HomeNavigation" component={HomeNavigation} />
+          ) : token && onboard_status !== OnboardStatus.COMPLETE ? (
+            <Stack.Screen
+              name="OnboardingNavigation"
+              component={OnboardingNavigation}
+            />
           ) : (
             <Stack.Screen name="AuthNavigation" component={AuthNavigation} />
           )}

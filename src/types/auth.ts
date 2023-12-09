@@ -1,8 +1,20 @@
 export enum OnboardStatus {
   BIO_DATA = 'bio-data',
-  GENDER = 'genderer',
+  GENDER = 'gender',
   INTEREST = 'interest',
   NOTIFICATION = 'notification',
+  COMPLETE = 'complete',
+}
+
+export enum SocialProvider {
+  GOOGLE = 'google',
+  FACEBOOK = 'facebook',
+  APPLE = 'apple',
+}
+
+export interface SignInWithSocialBody {
+  token: string;
+  provider: SocialProvider;
 }
 
 export interface AuthState {
@@ -11,7 +23,7 @@ export interface AuthState {
 }
 
 export interface AuthPayload {
-  payload: NonNullable<Pick<AuthState, 'token'>>;
+  payload: NonNullable<AuthState>;
 }
 
 export interface AuthResponse {
