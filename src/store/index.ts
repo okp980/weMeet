@@ -17,9 +17,11 @@ import {
 import {MMKV} from 'react-native-mmkv';
 
 import {api} from '../services/api';
+import auth from './auth';
 
 const reducers = combineReducers({
   [api.reducerPath]: api.reducer,
+  auth,
 });
 
 const storage = new MMKV();
