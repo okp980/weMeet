@@ -1,4 +1,4 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {
   GoogleSignin,
@@ -46,66 +46,28 @@ const SignIn = () => {
 
   // signOut();
   return (
-    <View
-      style={{
-        flex: 1,
-        paddingHorizontal: 40,
-        alignItems: 'center',
-      }}>
-      <View
-        style={{
-          flex: 0.7,
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '100%',
-        }}>
+    <View className="flex-1 px-10 items-center">
+      <View className="flex-[.7] justify-center items-center w-full">
         <Logo width={108} height={100} />
       </View>
-      <View style={{flex: 0.3, width: '100%'}}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            // gap: 8,
-            // justifyContent: 'space-between',
-          }}
-          className=" justify-between">
-          <View style={styles.line} />
-          <Text className="text-primary font-noto">sign up with</Text>
-          <View style={styles.line} />
+      <View className="flex-[.3] w-full">
+        <View className="flex-row items-center justify-between">
+          <View className="h-[2px] w-1/3 bg-gray-200" />
+          <Text className="text-gray-800 text-base font-noto">
+            Sign up with
+          </Text>
+          <View className="h-[2px] w-1/3 bg-gray-200" />
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            marginTop: 30,
-          }}>
-          <TouchableOpacity
-            style={{
-              borderRadius: 15,
-              borderWidth: 1,
-              borderColor: '#E8E6EA',
-              padding: 16,
-            }}>
+        <View className="flex-row justify-around mt-8">
+          <TouchableOpacity className="rounded-2xl border border-gray-200 p-4">
             <Facebook width={30} height={30} />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={signIn}
-            style={{
-              borderRadius: 15,
-              borderWidth: 1,
-              borderColor: '#E8E6EA',
-              padding: 16,
-            }}>
+            className="rounded-2xl border border-gray-200 p-4">
             <Google width={30} height={30} />
           </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              borderRadius: 15,
-              borderWidth: 1,
-              borderColor: '#E8E6EA',
-              padding: 16,
-            }}>
+          <TouchableOpacity className="rounded-2xl border border-gray-200 p-4">
             <Apple width={30} height={30} />
           </TouchableOpacity>
         </View>
@@ -115,11 +77,3 @@ const SignIn = () => {
 };
 
 export default SignIn;
-
-const styles = StyleSheet.create({
-  line: {
-    height: 2,
-    width: '33%',
-    backgroundColor: '#E8E6EA',
-  },
-});
