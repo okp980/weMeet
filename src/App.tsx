@@ -1,18 +1,16 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import 'react-native-gesture-handler';
 
 import React from 'react';
 
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/lib/integration/react';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+
 import {store, persistor} from './store';
 
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import Main from './navigation/main';
+import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 
 GoogleSignin.configure({
   webClientId:
@@ -33,7 +31,11 @@ function App(): JSX.Element {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Main />
+        <GestureHandlerRootView style={{flex: 1}}>
+          <BottomSheetModalProvider>
+            <Main />
+          </BottomSheetModalProvider>
+        </GestureHandlerRootView>
       </PersistGate>
     </Provider>
   );
