@@ -5,6 +5,7 @@ import {
   StyleProp,
   ViewStyle,
   TouchableOpacityProps,
+  View,
 } from 'react-native';
 import React, {ReactElement} from 'react';
 import clsx from 'clsx';
@@ -18,7 +19,7 @@ type Props = {
   endIcon?: ReactElement;
 } & TouchableOpacityProps;
 
-const btnRoot = 'rounded-2xl p-4 flex-row item-center justify-between';
+const btnRoot = 'rounded-2xl h-14 flex-row item-center gap-4 px-4';
 const textRoot = 'text-gray-800 text-base font-medium';
 
 const Button = ({
@@ -43,13 +44,16 @@ const Button = ({
   const textClass = clsx(textRoot, {
     ['text-white']: variant === 'primary',
     ['text-primary']: variant === 'accent',
+    ['text-center']: !startIcon && !endIcon,
   });
   return (
     <TouchableOpacity style={btnStyle} {...props} className={btnClass}>
       {startIcon && startIcon}
-      <Text style={textStyle} className={textClass}>
-        {children}
-      </Text>
+      <View className={clsx('flex-1')}>
+        <Text style={textStyle} className={textClass}>
+          {children}
+        </Text>
+      </View>
       {endIcon && endIcon}
     </TouchableOpacity>
   );

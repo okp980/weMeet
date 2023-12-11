@@ -6,6 +6,7 @@ import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/lib/integration/react';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import FlashMessage from 'react-native-flash-message';
 
 import {store, persistor} from './store';
 
@@ -34,6 +35,7 @@ function App(): JSX.Element {
         <GestureHandlerRootView style={{flex: 1}}>
           <BottomSheetModalProvider>
             <Main />
+            <FlashMessage position="top" />
           </BottomSheetModalProvider>
         </GestureHandlerRootView>
       </PersistGate>

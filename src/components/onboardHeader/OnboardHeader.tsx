@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import Button from '../button/Button';
@@ -14,9 +14,7 @@ export const OnboardHeaderWithOutGoBack = ({next}: Props) => {
   return (
     <View
       className={clsx('h-14 bg-white  px-4 flex-row items-center justify-end')}>
-      <Button
-        variant="text"
-        textStyle="text-primary"
+      <TouchableOpacity
         onPress={() =>
           next === 'Home'
             ? // @ts-ignore
@@ -24,8 +22,8 @@ export const OnboardHeaderWithOutGoBack = ({next}: Props) => {
             : // @ts-ignore
               navigation.navigate(next)
         }>
-        skip
-      </Button>
+        <Text className="text-primary text-base font-medium">skip</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -35,18 +33,15 @@ const OnboardHeader = ({next}: Props) => {
   return (
     <View
       className={clsx(
-        'h-14 bg-white px-4 flex-row items-center justify-between',
+        'h-16 bg-white px-4 flex-row items-center justify-between',
       )}>
-      <Button
-        variant="outline"
-        className="px-5"
-        startIcon={<Svg.LeftCaret />}
-        onPress={navigation.goBack}
-      />
+      <TouchableOpacity
+        className="border border-gray-200 rounded-2xl h-12 w-14 justify-center items-center"
+        onPress={navigation.goBack}>
+        <Svg.LeftCaret />
+      </TouchableOpacity>
 
-      <Button
-        variant="text"
-        textStyle="text-primary"
+      <TouchableOpacity
         onPress={() =>
           next === 'Home'
             ? // @ts-ignore
@@ -54,8 +49,8 @@ const OnboardHeader = ({next}: Props) => {
             : // @ts-ignore
               navigation.navigate(next)
         }>
-        skip
-      </Button>
+        <Text className="text-primary text-base font-medium">skip</Text>
+      </TouchableOpacity>
     </View>
   );
 };
