@@ -1,4 +1,10 @@
-import {View, Text, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 import React, {useState} from 'react';
 import {Button, CustomInput, Form, Layout} from '../../components';
 import {Controller} from 'react-hook-form';
@@ -47,78 +53,82 @@ const BioData = ({navigation}: any) => {
     }
   };
   return (
-    <Layout className="justify-between px-10">
-      <Text className="font-bold text-3xl">Profile details</Text>
-      <View className="mx-auto relative w-28 h-28 rounded-2xl">
-        <FastImage
-          source={{
-            uri: selectedImageURI
-              ? selectedImageURI
-              : 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-          }}
-          className="w-28 h-28 rounded-2xl"
-        />
-        <TouchableOpacity onPress={selectImage}>
-          <View className="bg-primary h-9 w-9 rounded-full justify-center items-center border border-white absolute right-[-10px] bottom-[-10px]">
-            <Svg.Camera />
-          </View>
-        </TouchableOpacity>
-      </View>
-      <Form<FormValues> onSubmit={onSubmit}>
-        {({handleSubmit, control, formState: {errors}}) => (
-          <>
-            <Controller
-              control={control}
-              name="firstName"
-              render={({field: {onChange, onBlur, value}}) => (
-                <CustomInput
-                  label="First name"
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
-                  error={errors.firstName}
-                  placeholder="John"
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name="lastName"
-              render={({field: {onChange, onBlur, value}}) => (
-                <CustomInput
-                  label="Last name"
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
-                  error={errors.lastName}
-                  placeholder="Doe"
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name="dateOfBirth"
-              render={({field: {onChange, onBlur, value}}) => (
-                <CustomInput
-                  label="Date Of Birth"
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
-                  error={errors.dateOfBirth}
-                  placeholder="23-01-1984"
-                />
-              )}
-            />
-            <Button
-              variant="primary"
-              className="mx-auto mt-5"
-              onPress={handleSubmit(onSubmit)}>
-              Confirm
-            </Button>
-          </>
-        )}
-      </Form>
-    </Layout>
+    <KeyboardAvoidingView
+      style={{flex: 1}}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      <Layout className="justify-between px-10">
+        <Text className="font-bold text-3xl">Profile details</Text>
+        <View className="mx-auto relative w-28 h-28 rounded-2xl">
+          <FastImage
+            source={{
+              uri: selectedImageURI
+                ? selectedImageURI
+                : 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+            }}
+            className="w-28 h-28 rounded-2xl"
+          />
+          <TouchableOpacity onPress={selectImage}>
+            <View className="bg-primary h-9 w-9 rounded-full justify-center items-center border border-white absolute right-[-10px] bottom-[-10px]">
+              <Svg.Camera />
+            </View>
+          </TouchableOpacity>
+        </View>
+        <Form<FormValues> onSubmit={onSubmit}>
+          {({handleSubmit, control, formState: {errors}}) => (
+            <>
+              <Controller
+                control={control}
+                name="firstName"
+                render={({field: {onChange, onBlur, value}}) => (
+                  <CustomInput
+                    label="First name"
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    value={value}
+                    error={errors.firstName}
+                    placeholder="John"
+                  />
+                )}
+              />
+              <Controller
+                control={control}
+                name="lastName"
+                render={({field: {onChange, onBlur, value}}) => (
+                  <CustomInput
+                    label="Last name"
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    value={value}
+                    error={errors.lastName}
+                    placeholder="Doe"
+                  />
+                )}
+              />
+              <Controller
+                control={control}
+                name="dateOfBirth"
+                render={({field: {onChange, onBlur, value}}) => (
+                  <CustomInput
+                    label="Date Of Birth"
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    value={value}
+                    error={errors.dateOfBirth}
+                    placeholder="23-01-1984"
+                  />
+                )}
+              />
+              <Button
+                variant="primary"
+                className="mx-auto mt-5"
+                onPress={handleSubmit(onSubmit)}>
+                Confirm
+              </Button>
+            </>
+          )}
+        </Form>
+      </Layout>
+    </KeyboardAvoidingView>
   );
 };
 

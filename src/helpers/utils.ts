@@ -42,3 +42,21 @@ export const checkPermission = async (permission: string) => {
       return null;
   }
 };
+
+export const getTwoDimensionalArray = <T>(singleArray: T[]): T[][] => {
+  return singleArray.reduce((prev: T[][], curr: T) => {
+    if (prev.length > 1) {
+      const lastIndex = prev.length - 1;
+      const lastItem = prev[lastIndex];
+
+      if (lastItem.length === 2) {
+        return [...prev, [curr]];
+      }
+
+      prev[lastIndex] = [...lastItem, curr];
+      return prev;
+    }
+
+    return [[curr]];
+  }, []);
+};
