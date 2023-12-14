@@ -26,6 +26,10 @@ import Home from '../assets/svgs/Home.svg';
 import Match from '../assets/svgs/match.svg';
 import Message from '../assets/svgs/message.svg';
 import Person from '../assets/svgs/person.svg';
+import Filter from '../assets/svgs/filter.svg';
+import Star from '../assets/svgs/star.svg';
+import Times from '../assets/svgs/times.svg';
+import Heart from '../assets/svgs/heart.svg';
 export default {
   Google,
   Facebook,
@@ -55,4 +59,8 @@ export default {
   Match,
   Message,
   Person,
+  Filter,
+  Star,
+  Times,
+  Heart,
 };

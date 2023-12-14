@@ -1,15 +1,65 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {Layout} from '../../components';
+import {CustomText, Layout} from '../../components';
+import Svg from '../../constants/svg';
 
 const Home = () => {
   return (
-    <Layout>
-      <Text>Home</Text>
+    <Layout className="gap-2">
+      <View className="flex-1 items-center relative">
+        <View className="flex-1 justify-end rounded-2xl w-full max-w-[295px] p-5">
+          <View className="z-20">
+            <CustomText as="h1" color="white">
+              Jessica Parker, 23
+            </CustomText>
+            <CustomText as="small" color="white">
+              Professional Model
+            </CustomText>
+          </View>
+          <View className="absolute top-0 left-0 right-0 bottom-0 rounded-2xl opacity-25 bg-gray-900" />
+        </View>
+      </View>
+      <View className="h-28 flex-row items-center justify-around">
+        <TouchableOpacity
+          className="h-20 w-20  rounded-full items-center justify-center"
+          style={styles.shadow}>
+          <Svg.Times />
+        </TouchableOpacity>
+        <TouchableOpacity
+          className="h-24 w-24 rounded-full items-center justify-center"
+          style={[
+            styles.shadow,
+            {
+              backgroundColor: '#E94057',
+              shadowColor: '#E94057',
+              shadowRadius: 10,
+              shadowOpacity: 0.25,
+            },
+          ]}>
+          <Svg.Heart />
+        </TouchableOpacity>
+        <TouchableOpacity
+          className="h-20 w-20 rounded-full items-center justify-center"
+          style={styles.shadow}>
+          <Svg.Star />
+        </TouchableOpacity>
+      </View>
     </Layout>
   );
 };
 
 export default Home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  shadow: {
+    shadowColor: 'black',
+    shadowOpacity: 0.15,
+    shadowRadius: 20,
+    shadowOffset: {
+      width: 0,
+      height: 15,
+    },
+    elevation: 3,
+    backgroundColor: 'white',
+  },
+});
