@@ -45,7 +45,7 @@ const OnboardHeader = ({next}: Props) => {
         onPress={() =>
           next === 'Home'
             ? // @ts-ignore
-              navigation.navigate('HomeNavigation', {path: 'Home'})
+              navigation.navigate('HomeNavigation', {screen: 'Home'})
             : // @ts-ignore
               navigation.navigate(next)
         }>

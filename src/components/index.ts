@@ -5,3 +5,4 @@ export {default as CustomBottomSheetModal} from './customBottomSheetModal/Custom
 export {default as CustomInput} from './customInput/CustomInput';
 export {default as Form} from './form/Form';
 export {default as Birthday} from './modals/Birthday';
+export {default as CustomTabBar} from './customTabBar/CustomTabBar';

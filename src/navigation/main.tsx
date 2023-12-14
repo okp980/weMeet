@@ -25,13 +25,14 @@ const Main = () => {
         <Stack.Navigator
           initialRouteName="AuthNavigation"
           screenOptions={{headerShown: false}}>
-          {token && onboard_status === OnboardStatus.COMPLETE ? (
-            <Stack.Screen name="HomeNavigation" component={HomeNavigation} />
-          ) : token && onboard_status !== OnboardStatus.COMPLETE ? (
-            <Stack.Screen
-              name="OnboardingNavigation"
-              component={OnboardingNavigation}
-            />
+          {token ? (
+            <>
+              <Stack.Screen
+                name="OnboardingNavigation"
+                component={OnboardingNavigation}
+              />
+              <Stack.Screen name="HomeNavigation" component={HomeNavigation} />
+            </>
           ) : (
             <Stack.Screen name="AuthNavigation" component={AuthNavigation} />
           )}

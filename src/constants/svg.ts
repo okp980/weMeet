@@ -22,6 +22,10 @@ import Extreme from '../assets/svgs/extreme.svg';
 import Music from '../assets/svgs/music.svg';
 import Drink from '../assets/svgs/drink.svg';
 import VideoGames from '../assets/svgs/video-games.svg';
+import Home from '../assets/svgs/Home.svg';
+import Match from '../assets/svgs/match.svg';
+import Message from '../assets/svgs/message.svg';
+import Person from '../assets/svgs/person.svg';
 export default {
   Google,
   Facebook,
@@ -47,4 +51,8 @@ export default {
   Music,
   Drink,
   VideoGames,
+  Home,
+  Match,
+  Message,
+  Person,
 };

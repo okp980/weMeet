@@ -1,16 +1,25 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Home} from '../../screens';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {Chat, Home, Match, Profile} from '../../screens';
+import {CustomTabBar} from '../../components';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const HomeNavigation = () => {
   return (
-    <Stack.Navigator
+    <Tab.Navigator
       initialRouteName="Home"
-      screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Home" component={Home} />
-    </Stack.Navigator>
+      tabBar={CustomTabBar}
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: 'red',
+        },
+      }}>
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Match" component={Match} />
+      <Tab.Screen name="Chat" component={Chat} />
+      <Tab.Screen name="Profile" component={Profile} />
+    </Tab.Navigator>
   );
 };
 
