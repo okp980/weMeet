@@ -8,11 +8,7 @@ const Tab = createBottomTabNavigator();
 const HomeNavigation = () => {
   return (
     <Tab.Navigator initialRouteName="Home" tabBar={CustomTabBar}>
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{header: () => <HomeHeader />}}
-      />
+      <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Match" component={Match} />
       <Tab.Screen name="Chat" component={Chat} />
       <Tab.Screen name="Profile" component={Profile} />

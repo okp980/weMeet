@@ -1,9 +1,18 @@
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import React from 'react';
-import {CustomText, Layout} from '../../components';
+import React, {useEffect, useRef} from 'react';
+import {CustomText, Filter, HomeHeader, Layout} from '../../components';
 import Svg from '../../constants/svg';
+import {BottomSheetModal} from '@gorhom/bottom-sheet';
 
-const Home = () => {
+const Home = ({navigation}: any) => {
+  const bottomRef = useRef<BottomSheetModal>(null);
+
+  useEffect(() => {
+    navigation.setOptions({
+      header: () => <HomeHeader ref={bottomRef} />,
+    });
+  }, []);
+
   return (
     <Layout className="gap-2">
       <View className="flex-1 items-center relative">
@@ -44,6 +53,7 @@ const Home = () => {
           <Svg.Star />
         </TouchableOpacity>
       </View>
+      <Filter ref={bottomRef} />
     </Layout>
   );
 };

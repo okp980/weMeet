@@ -37,7 +37,6 @@ const Button = ({
       ['bg-primary']: variant === 'primary',
       ['bg-transparent border border-gray-200']: variant === 'outline',
       ['bg-[#fdecef]']: variant === 'accent',
-      ['rounded-none']: variant === 'text',
     },
     btnStyle,
   );
@@ -46,6 +45,13 @@ const Button = ({
     ['text-primary']: variant === 'accent',
     ['text-center']: !startIcon && !endIcon,
   });
+  if (variant === 'text') {
+    return (
+      <TouchableOpacity {...props} style={btnStyle}>
+        <Text style={textStyle}>{children}</Text>
+      </TouchableOpacity>
+    );
+  }
   return (
     <TouchableOpacity style={btnStyle} {...props} className={btnClass}>
       {startIcon && startIcon}

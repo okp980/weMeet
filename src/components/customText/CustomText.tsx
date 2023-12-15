@@ -7,7 +7,7 @@ type Body = 'big' | 'small' | 'medium' | 'regular' | 'tiny';
 
 type Props = {
   as: HeaderAs | Body;
-  color: string;
+  color?: string;
 } & TextProps;
 
 const heading = {

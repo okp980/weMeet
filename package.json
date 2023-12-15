@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^4.5.1",
+    "@react-native-community/slider": "^4.4.4",
     "@react-native-google-signin/google-signin": "^10.1.1",
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/devtools": "^6.0.20",
@@ -38,7 +39,8 @@
     "react-native-svg": "^14.1.0",
     "react-redux": "^9.0.2",
     "redux-flipper": "^2.0.2",
-    "redux-persist": "^6.0.0"
+    "redux-persist": "^6.0.0",
+    "rn-range-slider": "^2.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
