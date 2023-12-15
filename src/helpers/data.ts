@@ -59,3 +59,64 @@ export const interests = [
     Icon: Svg.VideoGames,
   },
 ];
+
+export const matches = [
+  {
+    title: 'Today',
+    data: [
+      {
+        image:
+          'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        name: 'laliana',
+        age: 19,
+      },
+      {
+        image:
+          'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        name: 'Anabelle',
+        age: 20,
+      },
+      {
+        image:
+          'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        name: 'Reagan',
+        age: 28,
+      },
+      {
+        image:
+          'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        name: 'Hardley',
+        age: 25,
+      },
+    ],
+  },
+  {
+    title: 'Yesterday',
+    data: [
+      {
+        image:
+          'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        name: 'laliana',
+        age: 19,
+      },
+      {
+        image:
+          'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        name: 'Anabelle',
+        age: 20,
+      },
+      {
+        image:
+          'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        name: 'Reagan',
+        age: 28,
+      },
+      {
+        image:
+          'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        name: 'Hardley',
+        age: 25,
+      },
+    ],
+  },
+];

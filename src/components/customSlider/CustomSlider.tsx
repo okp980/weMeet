@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import React, {useState} from 'react';
 import Slider, {SliderProps} from '@react-native-community/slider';
 import CustomText from '../customText/CustomText';
