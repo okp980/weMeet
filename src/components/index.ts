@@ -12,3 +12,5 @@ export {default as HomeHeader} from './homeHeader/HomeHeader';
 export {default as CustomSlider} from './customSlider/CustomSlider';
 export {default as CustomRangeSlider} from './customRangeSlider/CustomRangeSlider';
 export {default as MatchCard} from './cards/MatchCard';
+export {default as ActivityCard} from './cards/ActivityCard';
+export {default as MessageCard} from './cards/MessageCard';
