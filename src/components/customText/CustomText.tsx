@@ -1,6 +1,7 @@
 import {View, Text, TextProps} from 'react-native';
 import React from 'react';
 import clsx from 'clsx';
+import {styled} from 'nativewind';
 
 type HeaderAs = 'h1' | 'h2' | 'h3';
 type Body = 'big' | 'small' | 'medium' | 'regular' | 'tiny';
@@ -11,7 +12,7 @@ type Props = {
 } & TextProps;
 
 const heading = {
-  h1: 'font-bold text-2xl mb-2',
+  h1: 'font-bold text-2xl mb-1',
   h2: 'font-semibold text-xl mb-1',
   h3: 'font-semibold text-lg mb-1',
 };
@@ -42,4 +43,8 @@ const CustomText = ({style, as, color = 'black', children}: Props) => {
   );
 };
 
-export default CustomText;
+export default styled(CustomText, {
+  props: {
+    style: true,
+  },
+});

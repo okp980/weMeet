@@ -1,7 +1,8 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Chat, Home, Match, Profile} from '../../screens';
-import {CustomTabBar, HomeHeader} from '../../components';
+import {CustomTabBar, CustomText} from '../../components';
+import {View} from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -11,18 +12,31 @@ const HomeNavigation = () => {
       initialRouteName="Home"
       tabBar={CustomTabBar}
       screenOptions={{
-        headerStatusBarHeight: 30,
         headerTitleAlign: 'left',
         headerShadowVisible: false,
-        // headerStyle: {
-        //   backgroundColor: 'red',
-        // },
+        headerStyle: {
+          backgroundColor: 'white',
+          height: 80,
+        },
         headerTitleStyle: {
           fontSize: 30,
           fontWeight: '700',
         },
       }}>
-      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          headerTitle: () => (
+            <>
+              <CustomText as="h1" className="text-3xl">
+                Discover
+              </CustomText>
+              <CustomText as="small">Chicago,ll</CustomText>
+            </>
+          ),
+        }}
+      />
       <Tab.Screen
         name="Match"
         component={Match}

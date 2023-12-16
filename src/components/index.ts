@@ -8,7 +8,7 @@ export {default as Birthday} from './modals/Birthday';
 export {default as Filter} from './modals/Filter';
 export {default as CustomTabBar} from './customTabBar/CustomTabBar';
 export {default as CustomText} from './customText/CustomText';
-export {default as HomeHeader} from './homeHeader/HomeHeader';
+
 export {default as CustomSlider} from './customSlider/CustomSlider';
 export {default as CustomRangeSlider} from './customRangeSlider/CustomRangeSlider';
 export {default as MatchCard} from './cards/MatchCard';

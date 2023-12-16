@@ -1,15 +1,27 @@
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import React, {useEffect, useRef} from 'react';
-import {CustomText, Filter, HomeHeader, Layout} from '../../components';
+import {CustomText, Filter, Layout} from '../../components';
 import Svg from '../../constants/svg';
 import {BottomSheetModal} from '@gorhom/bottom-sheet';
 
 const Home = ({navigation}: any) => {
   const bottomRef = useRef<BottomSheetModal>(null);
 
+  const openFilter = () => {
+    bottomRef?.current?.present();
+  };
+
   useEffect(() => {
     navigation.setOptions({
-      header: () => <HomeHeader ref={bottomRef} />,
+      headerRight: () => (
+        <View className="mr-4">
+          <TouchableOpacity
+            className="border border-gray-200 rounded-2xl h-12 w-14 justify-center items-center"
+            onPress={openFilter}>
+            <Svg.Filter />
+          </TouchableOpacity>
+        </View>
+      ),
     });
   }, []);
 
