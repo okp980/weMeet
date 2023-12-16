@@ -11,7 +11,7 @@ import HomeNavigation from './home/HomeNavigation';
 import {useAuth} from '../hooks';
 import {OnboardStatus} from '../types/auth';
 import OnboardingNavigation from './onboarding/OnboardingNavigation';
-import {ProfileModal} from '../screens';
+import {GalleryModal, PhotoModal, ProfileModal} from '../screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +35,8 @@ const Main = () => {
               <Stack.Screen name="HomeNavigation" component={HomeNavigation} />
               <Stack.Group screenOptions={{presentation: 'fullScreenModal'}}>
                 <Stack.Screen name="ProfileModal" component={ProfileModal} />
+                <Stack.Screen name="GalleryModal" component={GalleryModal} />
+                <Stack.Screen name="PhotoModal" component={PhotoModal} />
               </Stack.Group>
             </Stack.Group>
           ) : (

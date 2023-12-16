@@ -85,7 +85,7 @@ const Profile = ({navigation}: any) => {
               Gallery
             </CustomText>
             <Button
-              onPress={() => navigation.navigate('PhotoModal', {user: '1'})}
+              onPress={() => navigation.navigate('GalleryModal', {user: '1'})}
               variant="text"
               textStyle="font-semibold text-xs text-primary">
               See all

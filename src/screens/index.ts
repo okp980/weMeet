@@ -15,3 +15,5 @@ export {default as Profile} from './home/Profile';
 
 // Modal
 export {default as ProfileModal} from './modal/Profile';
+export {default as PhotoModal} from './modal/Photo';
+export {default as GalleryModal} from './modal/Gallery';
