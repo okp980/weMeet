@@ -16,7 +16,9 @@ const Home = ({navigation}: any) => {
   return (
     <Layout className="gap-2">
       <View className="flex-1 items-center relative">
-        <View className="flex-1 justify-end rounded-2xl w-full max-w-[295px] p-5">
+        <TouchableOpacity
+          onPress={() => navigation.navigate('ProfileModal')}
+          className="flex-1 justify-end rounded-2xl w-full max-w-[295px] p-5">
           <View className="z-20">
             <CustomText as="h1" color="white">
               Jessica Parker, 23
@@ -26,7 +28,7 @@ const Home = ({navigation}: any) => {
             </CustomText>
           </View>
           <View className="absolute top-0 left-0 right-0 bottom-0 rounded-2xl opacity-25 bg-gray-900" />
-        </View>
+        </TouchableOpacity>
       </View>
       <View className="h-28 flex-row items-center justify-around">
         <TouchableOpacity

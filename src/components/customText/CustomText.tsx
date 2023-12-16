@@ -11,9 +11,9 @@ type Props = {
 } & TextProps;
 
 const heading = {
-  h1: 'font-bold text-2xl',
-  h2: 'font-semibold text-xl',
-  h3: 'font-semibold text-lg',
+  h1: 'font-bold text-2xl mb-2',
+  h2: 'font-semibold text-xl mb-1',
+  h3: 'font-semibold text-lg mb-1',
 };
 
 const body = {

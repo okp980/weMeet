@@ -30,6 +30,7 @@ import Filter from '../assets/svgs/filter.svg';
 import Star from '../assets/svgs/star.svg';
 import Times from '../assets/svgs/times.svg';
 import Heart from '../assets/svgs/heart.svg';
+import Send from '../assets/svgs/send.svg';
 export default {
   Google,
   Facebook,
@@ -63,4 +64,5 @@ export default {
   Star,
   Times,
   Heart,
+  Send,
 };

@@ -19,7 +19,7 @@ type Props = {
   endIcon?: ReactElement;
 } & TouchableOpacityProps;
 
-const btnRoot = 'rounded-2xl h-14 flex-row item-center gap-4 px-4';
+const btnRoot = 'rounded-2xl h-14 flex-row item-center justify-center gap-4';
 const textRoot = 'text-gray-800 text-base font-medium';
 
 const Button = ({
