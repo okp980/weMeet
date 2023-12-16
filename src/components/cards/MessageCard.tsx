@@ -2,6 +2,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import FastImage from 'react-native-fast-image';
 import CustomText from '../customText/CustomText';
+import {useNavigation} from '@react-navigation/native';
 
 type Props = {
   item: any;

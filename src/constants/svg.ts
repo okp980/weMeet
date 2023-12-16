@@ -31,6 +31,7 @@ import Star from '../assets/svgs/star.svg';
 import Times from '../assets/svgs/times.svg';
 import Heart from '../assets/svgs/heart.svg';
 import Send from '../assets/svgs/send.svg';
+import Close from '../assets/svgs/close.svg';
 export default {
   Google,
   Facebook,
@@ -65,4 +66,5 @@ export default {
   Times,
   Heart,
   Send,
+  Close,
 };

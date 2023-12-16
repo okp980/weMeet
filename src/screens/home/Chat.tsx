@@ -11,13 +11,13 @@ import {
 import {Controller} from 'react-hook-form';
 import {matches} from '../../helpers/data';
 
-type Props = {};
+type Props = any;
 
 type FormValues = {
   search: string;
 };
 
-const Chat = (props: Props) => {
+const Chat = ({navigation}: Props) => {
   const onSubmit = (data: FormValues) => {
     console.log(data);
   };
@@ -45,7 +45,9 @@ const Chat = (props: Props) => {
       <FlatList
         className="my-1 h-28"
         data={matches[0].data}
-        renderItem={ActivityCard}
+        renderItem={({item}) => (
+          <ActivityCard item={item} navigation={navigation} />
+        )}
         keyExtractor={(item, index) => item.name + index}
         ItemSeparatorComponent={() => <View className="mr-4" />}
         horizontal

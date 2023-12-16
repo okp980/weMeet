@@ -13,7 +13,7 @@ import FastImage from 'react-native-fast-image';
 
 type Props = {};
 
-const interests = ['Travelling', 'Books', 'Music', 'Dancing', 'Modelling'];
+const interests = ['Travelling', 'Books', 'Music', 'Dancing', 'Modeling'];
 
 const Profile = ({navigation}: any) => {
   return (
@@ -26,7 +26,7 @@ const Profile = ({navigation}: any) => {
         style={{height: 500}}>
         <View className="pt-10 pl-7">
           <TouchableOpacity
-            className="border border-gray-200 rounded-2xl h-12 w-14 justify-center items-center"
+            className="border border-gray-200 rounded-2xl h-12 w-14 justify-center items-center bg-white/20"
             onPress={navigation.goBack}>
             <Svg.LeftCaret fill={'#fff'} />
           </TouchableOpacity>
@@ -43,7 +43,7 @@ const Profile = ({navigation}: any) => {
           <Button
             variant="outline"
             className="m-0 h-14 w-14"
-            startIcon={<Svg.Send />}
+            startIcon={<Svg.Send fill={'#E94057'} />}
           />
         </View>
         <View className="mt-2">
