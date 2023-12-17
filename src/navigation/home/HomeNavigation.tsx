@@ -2,7 +2,6 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Chat, Home, Match, Profile} from '../../screens';
 import {CustomTabBar, CustomText} from '../../components';
-import {View} from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -32,7 +31,7 @@ const HomeNavigation = () => {
               <CustomText as="h1" className="text-3xl">
                 Discover
               </CustomText>
-              <CustomText as="small">Chicago,ll</CustomText>
+              <CustomText as="small">Chicago,ll.</CustomText>
             </>
           ),
         }}

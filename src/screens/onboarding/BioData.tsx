@@ -13,6 +13,8 @@ import FastImage from 'react-native-fast-image';
 import {checkPermission} from '../../helpers/utils';
 import {launchImageLibrary} from 'react-native-image-picker';
 import {showMessage} from 'react-native-flash-message';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import {useAuth} from '../../hooks';
 
 type FormValues = {
   firstName: string;
@@ -22,9 +24,24 @@ type FormValues = {
 
 const BioData = ({navigation}: any) => {
   const [selectedImageURI, setSelectedImageURI] = useState('');
+  const {removeAuth} = useAuth();
   const onSubmit = (data: FormValues) => {
     navigation.navigate('Gender');
   };
+
+  const signOut = async () => {
+    try {
+      const signout = await GoogleSignin.signOut();
+      console.log(signout);
+      console.log('ssigned out');
+      removeAuth();
+      // Remember to remove the user from your app's state as well
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // signOut();
 
   const selectImage = async () => {
     try {

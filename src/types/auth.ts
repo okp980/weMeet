@@ -27,6 +27,6 @@ export interface AuthPayload {
 }
 
 export interface AuthResponse {
-  token: string;
+  access_token: string;
   onboard_status: OnboardStatus;
 }

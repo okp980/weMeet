@@ -5,9 +5,18 @@ import {
   fetchBaseQuery,
   FetchBaseQueryError,
 } from '@reduxjs/toolkit/query/react';
+import {RootState} from '../store';
 
 const baseQuery = fetchBaseQuery({
   baseUrl: process.env.API_URL,
+  prepareHeaders(headers, api) {
+    const token = (api.getState() as RootState).auth.token;
+
+    if (token) {
+      headers.set('authorization', `Bearer ${token}`);
+    }
+    return headers;
+  },
 });
 
 const baseQueryWithInterceptor: BaseQueryFn<

@@ -19,14 +19,11 @@ const SignIn = () => {
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
-      // const response = await signInWithSocial({
-      //   token: userInfo.idToken!,
-      //   provider: SocialProvider.GOOGLE,
-      // }).unwrap();
-      // authenticateUser(response.token, response.onboard_status);
-
-      // TODO:REMOVE THIS
-      authenticateUser(userInfo.idToken!, OnboardStatus.BIO_DATA);
+      const response = await signInWithSocial({
+        token: userInfo.idToken!,
+        provider: SocialProvider.GOOGLE,
+      }).unwrap();
+      authenticateUser(response.access_token, response.onboard_status);
     } catch (error: any) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow

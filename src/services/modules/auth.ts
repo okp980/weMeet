@@ -5,7 +5,7 @@ export const authApi = api.injectEndpoints({
   endpoints: build => ({
     signInWithSocial: build.mutation<AuthResponse, SignInWithSocialBody>({
       query: body => ({
-        url: '/auth/signin-social',
+        url: '/auth/social-login',
         method: 'POST',
         body,
       }),

@@ -77,5 +77,6 @@
 	<string>weMeet needs to access your camera to capture video</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>weMeet needs to access your microphone to capture voice</string>
+	
 </dict>
 </plist>
