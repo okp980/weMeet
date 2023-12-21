@@ -1,25 +1,20 @@
-import {
-  selectAuth,
-  authenticate,
-  clearAuth,
-  selectOboardStatus,
-} from '../store/auth';
+import {selectAuth, authenticate, clearAuth, selectUser} from '../store/auth';
 import {useAppDispatch, useAppSelector} from '../store';
-import {OnboardStatus} from '../types/auth';
+import {User} from '../types/auth';
 
 const useAuth = () => {
   const dispatch = useAppDispatch();
   const token = useAppSelector(selectAuth);
-  const onboard_status = useAppSelector(selectOboardStatus);
+  const user = useAppSelector(selectUser);
 
-  function authenticateUser(token: string, onboard_status: OnboardStatus) {
-    dispatch(authenticate({token, onboard_status}));
+  function authenticateUser(token: string) {
+    dispatch(authenticate({token}));
   }
 
   function removeAuth() {
     dispatch(clearAuth());
   }
-  return {token, onboard_status, authenticateUser, removeAuth};
+  return {token, user, authenticateUser, removeAuth};
 };
 
 export default useAuth;

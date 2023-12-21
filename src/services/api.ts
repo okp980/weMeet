@@ -6,6 +6,12 @@ import {
   FetchBaseQueryError,
 } from '@reduxjs/toolkit/query/react';
 import {RootState} from '../store';
+import {clearAuth} from '../store/auth';
+
+interface CustomError {
+  data: {message: string; statusCode: number};
+  status: number;
+}
 
 const baseQuery = fetchBaseQuery({
   baseUrl: process.env.API_URL,
@@ -26,11 +32,17 @@ const baseQueryWithInterceptor: BaseQueryFn<
 > = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions);
   if (result.error && result.error.status === 401) {
+    api.dispatch(clearAuth());
   }
   return result;
 };
 
 export const api = createApi({
-  baseQuery: baseQueryWithInterceptor,
+  baseQuery: baseQueryWithInterceptor as BaseQueryFn<
+    string | FetchArgs,
+    unknown,
+    CustomError,
+    {}
+  >,
   endpoints: () => ({}),
 });

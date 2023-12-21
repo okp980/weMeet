@@ -4,26 +4,24 @@ import {AuthPayload, AuthState} from '../types/auth';
 
 const initialState: AuthState = {
   token: null,
-  onboard_status: null,
+  user: null,
 };
 
 const slice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    authenticate: (state, {payload: {token, onboard_status}}: AuthPayload) => {
+    authenticate: (state, {payload: {token}}: AuthPayload) => {
       state.token = token;
-      state.onboard_status = onboard_status;
     },
     clearAuth: state => {
       state.token = null;
-      state.onboard_status = null;
+      state.user = null;
     },
   },
 });
 
 export const {authenticate, clearAuth} = slice.actions;
 export const selectAuth = (state: RootState) => state.auth.token;
-export const selectOboardStatus = (state: RootState) =>
-  state.auth.onboard_status;
+export const selectUser = (state: RootState) => state.auth.user;
 export default slice.reducer;

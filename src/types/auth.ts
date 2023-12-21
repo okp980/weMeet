@@ -12,6 +12,24 @@ export enum SocialProvider {
   APPLE = 'apple',
 }
 
+// export interface User {
+//   image: string;
+
+//   firstName: string;
+
+//   lastName: string;
+
+//   gender: string;
+
+//   dateOfBirth: string;
+
+//   passion: string[];
+
+//   getNotifications: boolean;
+
+//   email: string;
+// }
+
 export interface SignInWithSocialBody {
   token: string;
   provider: SocialProvider;
@@ -19,14 +37,38 @@ export interface SignInWithSocialBody {
 
 export interface AuthState {
   token: string | null;
-  onboard_status: OnboardStatus | null;
+  user: User | null;
 }
 
 export interface AuthPayload {
-  payload: NonNullable<AuthState>;
+  payload: Pick<NonNullable<AuthState>, 'token'>;
 }
 
 export interface AuthResponse {
   access_token: string;
-  onboard_status: OnboardStatus;
+}
+
+export interface Profile {
+  createdAt: string;
+  dateOfBirth: string;
+  email: string;
+  firstName: string;
+  gender: string;
+  getNotifications: string;
+  id: number;
+  image: string;
+  lastName: string;
+  passion: string[];
+  updatedAt: string;
+  userId: number;
+}
+
+export interface User {
+  createdAt: string;
+
+  email: string;
+  id: number;
+  provider: string;
+  updatedAt: string;
+  profile: Profile;
 }

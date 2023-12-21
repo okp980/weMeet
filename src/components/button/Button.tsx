@@ -6,6 +6,7 @@ import {
   ViewStyle,
   TouchableOpacityProps,
   View,
+  ActivityIndicator,
 } from 'react-native';
 import React, {ReactElement} from 'react';
 import clsx from 'clsx';
@@ -15,11 +16,13 @@ type Props = {
   textStyle?: TextProps;
   btnStyle?: StyleProp<ViewStyle>;
   variant: 'primary' | 'outline' | 'accent' | 'text';
+  loading?: boolean;
   startIcon?: ReactElement;
   endIcon?: ReactElement;
 } & TouchableOpacityProps;
 
-const btnRoot = 'rounded-2xl h-14 flex-row item-center justify-center gap-4';
+const btnRoot =
+  'rounded-2xl h-14 flex-row item-center justify-center gap-4 p-0';
 const textRoot = 'text-gray-800 text-base font-medium';
 
 const Button = ({
@@ -29,6 +32,7 @@ const Button = ({
   startIcon,
   endIcon,
   children,
+  loading,
   ...props
 }: Props) => {
   const btnClass = clsx(
@@ -45,6 +49,17 @@ const Button = ({
     ['text-primary']: variant === 'accent',
     ['text-center']: !startIcon && !endIcon,
   });
+  if (loading) {
+    return (
+      <TouchableOpacity
+        style={btnStyle}
+        {...props}
+        className={btnClass}
+        disabled={loading}>
+        <ActivityIndicator size={'small'} color={'white'} />
+      </TouchableOpacity>
+    );
+  }
   if (variant === 'text') {
     return (
       <TouchableOpacity {...props} style={btnStyle}>

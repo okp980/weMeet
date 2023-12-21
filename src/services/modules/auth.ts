@@ -1,4 +1,4 @@
-import {AuthResponse, SignInWithSocialBody} from '../../types/auth';
+import {AuthResponse, SignInWithSocialBody, User} from '../../types/auth';
 import {api} from '../api';
 
 export const authApi = api.injectEndpoints({
@@ -10,8 +10,14 @@ export const authApi = api.injectEndpoints({
         body,
       }),
     }),
+    getProfile: build.query<User, void>({
+      query: () => ({
+        url: '/auth/profile',
+        method: 'GET',
+      }),
+    }),
   }),
   overrideExisting: false,
 });
 
-export const {useSignInWithSocialMutation} = authApi;
+export const {useSignInWithSocialMutation, useGetProfileQuery} = authApi;

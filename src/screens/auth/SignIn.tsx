@@ -7,14 +7,14 @@ import {
 
 import {Svg} from '../../constants';
 import {useSignInWithSocialMutation} from '../../services/modules/auth';
-import {OnboardStatus, SocialProvider} from '../../types/auth';
+import {SocialProvider} from '../../types/auth';
 import {useAuth} from '../../hooks';
 
 const {Apple, Facebook, Google, Logo} = Svg;
 
 const SignIn = () => {
   const [signInWithSocial, {isLoading}] = useSignInWithSocialMutation();
-  const {authenticateUser} = useAuth();
+  const {authenticateUser, removeAuth} = useAuth();
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
@@ -23,7 +23,7 @@ const SignIn = () => {
         token: userInfo.idToken!,
         provider: SocialProvider.GOOGLE,
       }).unwrap();
-      authenticateUser(response.access_token, response.onboard_status);
+      authenticateUser(response.access_token);
     } catch (error: any) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
@@ -46,8 +46,7 @@ const SignIn = () => {
       const signout = await GoogleSignin.signOut();
       console.log(signout);
       console.log('ssigned out');
-
-      // Remember to remove the user from your app's state as well
+      removeAuth();
     } catch (error) {
       console.error(error);
     }
