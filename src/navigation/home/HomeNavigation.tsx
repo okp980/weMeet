@@ -1,49 +1,43 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Chat, Home, Match, Profile} from '../../screens';
-import {CustomTabBar, CustomText} from '../../components';
+import {GalleryModal, PhotoModal, ProfileModal} from '../../screens';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Navigation} from '../../constants';
+import ProfileOnboardingNavigation from '../profile-onboarding/ProfileOnboardingNavigation';
+import TabNavigation from '../tab/TabNavigation';
+import {useAuth} from '../../hooks';
 
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 const HomeNavigation = () => {
+  const {hasOnboardedProfile} = useAuth();
   return (
-    <Tab.Navigator
-      initialRouteName="Home"
-      tabBar={CustomTabBar}
-      screenOptions={{
-        headerTitleAlign: 'left',
-        headerShadowVisible: false,
-        headerStyle: {
-          backgroundColor: 'white',
-          height: 80,
-        },
-        headerTitleStyle: {
-          fontSize: 30,
-          fontWeight: '700',
-        },
-      }}>
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          headerTitle: () => (
-            <>
-              <CustomText as="h1" className="text-3xl">
-                Discover
-              </CustomText>
-              <CustomText as="small">Chicago,ll.</CustomText>
-            </>
-          ),
-        }}
+    <Stack.Navigator
+      initialRouteName={
+        hasOnboardedProfile
+          ? Navigation.TAB_NAVIGATION
+          : Navigation.PROFILE_ONBOARDING_NAVIGATION
+      }
+      screenOptions={{headerShown: false}}>
+      <Stack.Screen
+        name={Navigation.PROFILE_ONBOARDING_NAVIGATION}
+        component={ProfileOnboardingNavigation}
       />
-      <Tab.Screen
-        name="Match"
-        component={Match}
-        options={{headerTitle: 'Matches'}}
+      <Stack.Screen
+        name={Navigation.TAB_NAVIGATION}
+        component={TabNavigation}
       />
-      <Tab.Screen name="Chat" component={Chat} />
-      <Tab.Screen name="Profile" component={Profile} />
-    </Tab.Navigator>
+      <Stack.Group screenOptions={{presentation: 'fullScreenModal'}}>
+        <Stack.Screen
+          name={Navigation.PROFILE_MODAL}
+          component={ProfileModal}
+        />
+        <Stack.Screen
+          name={Navigation.GALLERY_MODAL}
+          component={GalleryModal}
+        />
+        <Stack.Screen name={Navigation.PHOTO_MODAL} component={PhotoModal} />
+      </Stack.Group>
+    </Stack.Navigator>
   );
 };
 

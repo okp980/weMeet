@@ -13,8 +13,6 @@ import FastImage from 'react-native-fast-image';
 import {checkPermission} from '../../helpers/utils';
 import {launchImageLibrary} from 'react-native-image-picker';
 import {showMessage} from 'react-native-flash-message';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {useAuth} from '../../hooks';
 import {useGetProfileQuery} from '../../services/modules/auth';
 import {useBioDataMutation} from '../../services/modules/onboarding';
 import {AWS_S3_LINK} from '@env';
@@ -29,7 +27,7 @@ const BioData = ({navigation}: any) => {
   const [selectedImageURI, setSelectedImageURI] = useState('');
   const {data: profile, isSuccess, isError, error} = useGetProfileQuery();
   const [updateBioData, {isLoading: isLoadingBiodata}] = useBioDataMutation();
-  const {removeAuth} = useAuth();
+
   const {
     control,
     reset,
@@ -62,20 +60,6 @@ const BioData = ({navigation}: any) => {
     }
   }, [isSuccess, profile, isError, error]);
 
-  const signOut = async () => {
-    try {
-      const signout = await GoogleSignin.signOut();
-      console.log(signout);
-      console.log('ssigned out');
-      removeAuth();
-      // Remember to remove the user from your app's state as well
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  // signOut();
-
   const selectImage = async () => {
     try {
       // await checkPermission('camera');
@@ -92,22 +76,16 @@ const BioData = ({navigation}: any) => {
         }
         // @ts-ignore
         setSelectedImageURI(response.assets[0].uri);
-        // @ts-ignore
-        console.log(response.assets);
-
-        // set image uri
       }
     } catch (error: any) {
       if (typeof error === 'string') {
         showMessage({message: error, type: 'danger'});
       }
-      console.log(error);
     }
   };
 
   const onSubmit = async (data: FormValues) => {
     const formData = new FormData();
-    console.log(data);
 
     formData.append('image', {
       uri: selectedImageURI,

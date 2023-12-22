@@ -3,6 +3,7 @@ import React, {useEffect, useRef} from 'react';
 import {CustomText, Filter, Layout} from '../../components';
 import Svg from '../../constants/svg';
 import {BottomSheetModal} from '@gorhom/bottom-sheet';
+import {Navigation} from '../../constants';
 
 const Home = ({navigation}: any) => {
   const bottomRef = useRef<BottomSheetModal>(null);
@@ -29,7 +30,7 @@ const Home = ({navigation}: any) => {
     <Layout className="gap-2">
       <View className="flex-1 items-center relative">
         <TouchableOpacity
-          onPress={() => navigation.navigate('ProfileModal')}
+          onPress={() => navigation.navigate(Navigation.PROFILE_MODAL)}
           className="flex-1 justify-end rounded-2xl w-full max-w-[295px] p-5">
           <View className="z-20">
             <CustomText as="h1" color="white">

@@ -1,6 +1,7 @@
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import {View, TouchableOpacity} from 'react-native';
 import Svg from '../../constants/svg';
+import {Navigation} from '../../constants';
 
 export default function CustomTabBar({
   state,
@@ -22,16 +23,16 @@ export default function CustomTabBar({
 
         let icon;
         switch ((label as string).toLowerCase()) {
-          case 'home':
+          case Navigation.HOME_SCREEN.toLowerCase():
             icon = <Svg.Home fill={isFocused ? '#E94057' : '#ADAFBB'} />;
             break;
-          case 'match':
+          case Navigation.MATCH_SCREEN.toLowerCase():
             icon = <Svg.Match fill={isFocused ? '#E94057' : '#ADAFBB'} />;
             break;
-          case 'chat':
+          case Navigation.CHAT_SCREEN.toLowerCase():
             icon = <Svg.Message fill={isFocused ? '#E94057' : '#ADAFBB'} />;
             break;
-          case 'profile':
+          case Navigation.PROFILE_SCREEN.toLowerCase():
             icon = <Svg.Person fill={isFocused ? '#E94057' : '#ADAFBB'} />;
             break;
 

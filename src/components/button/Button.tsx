@@ -22,7 +22,7 @@ type Props = {
 } & TouchableOpacityProps;
 
 const btnRoot =
-  'rounded-2xl h-14 flex-row item-center justify-center gap-4 p-0';
+  'rounded-2xl h-14 flex-row item-center justify-center gap-4 px-4';
 const textRoot = 'text-gray-800 text-base font-medium';
 
 const Button = ({
@@ -35,15 +35,11 @@ const Button = ({
   loading,
   ...props
 }: Props) => {
-  const btnClass = clsx(
-    btnRoot,
-    {
-      ['bg-primary']: variant === 'primary',
-      ['bg-transparent border border-gray-200']: variant === 'outline',
-      ['bg-[#fdecef]']: variant === 'accent',
-    },
-    btnStyle,
-  );
+  const btnClass = clsx(btnRoot, {
+    ['bg-primary w-full']: variant === 'primary',
+    ['bg-transparent border border-gray-200 w-full']: variant === 'outline',
+    ['bg-[#fdecef] w-full']: variant === 'accent',
+  });
   const textClass = clsx(textRoot, {
     ['text-white']: variant === 'primary',
     ['text-primary']: variant === 'accent',
@@ -53,9 +49,9 @@ const Button = ({
     return (
       <TouchableOpacity
         style={btnStyle}
-        {...props}
         className={btnClass}
-        disabled={loading}>
+        disabled={loading}
+        {...props}>
         <ActivityIndicator size={'small'} color={'white'} />
       </TouchableOpacity>
     );

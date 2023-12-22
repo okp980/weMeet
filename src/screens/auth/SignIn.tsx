@@ -9,6 +9,7 @@ import {Svg} from '../../constants';
 import {useSignInWithSocialMutation} from '../../services/modules/auth';
 import {SocialProvider} from '../../types/auth';
 import {useAuth} from '../../hooks';
+import {showMessage} from 'react-native-flash-message';
 
 const {Apple, Facebook, Google, Logo} = Svg;
 
@@ -37,6 +38,12 @@ const SignIn = () => {
       } else {
         // some other error happened
         console.log('wild card', error);
+        showMessage({
+          type: 'danger',
+          message:
+            error.toString().replace(/[]/gi, '') ??
+            'Error signing in with Google',
+        });
       }
     }
   };

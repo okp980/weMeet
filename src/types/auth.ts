@@ -38,10 +38,15 @@ export interface SignInWithSocialBody {
 export interface AuthState {
   token: string | null;
   user: User | null;
+  hasOnboardedProfile: boolean;
 }
 
 export interface AuthPayload {
   payload: Pick<NonNullable<AuthState>, 'token'>;
+}
+
+export interface OnboardedProfilePayload {
+  payload: {onboarded: boolean};
 }
 
 export interface AuthResponse {

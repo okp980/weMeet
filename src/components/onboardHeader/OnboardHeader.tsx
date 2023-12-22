@@ -4,9 +4,11 @@ import {useNavigation} from '@react-navigation/native';
 import Button from '../button/Button';
 import Svg from '../../constants/svg';
 import clsx from 'clsx';
+import {Navigation} from '../../constants';
+import {useAuth} from '../../hooks';
 
 type Props = {
-  next: 'Gender' | 'Passion' | 'Notification' | 'Home';
+  next: keyof typeof Navigation;
 };
 
 export const OnboardHeaderWithOutGoBack = ({next}: Props) => {
@@ -16,9 +18,11 @@ export const OnboardHeaderWithOutGoBack = ({next}: Props) => {
       className={clsx('h-14 bg-white  px-4 flex-row items-center justify-end')}>
       <TouchableOpacity
         onPress={() =>
-          next === 'Home'
+          next === Navigation.HOME_SCREEN
             ? // @ts-ignore
-              navigation.navigate('HomeNavigation', {path: 'Home'})
+              navigation.navigate(Navigation.TAB_NAVIGATION, {
+                path: Navigation.HOME_SCREEN,
+              })
             : // @ts-ignore
               navigation.navigate(next)
         }>
@@ -30,6 +34,19 @@ export const OnboardHeaderWithOutGoBack = ({next}: Props) => {
 
 const OnboardHeader = ({next}: Props) => {
   const navigation = useNavigation();
+  const {compeleteProfileOnboarding} = useAuth();
+  const onNavigate = (next: string) => {
+    if (next === Navigation.HOME_SCREEN) {
+      compeleteProfileOnboarding();
+      // @ts-ignore
+      navigation.navigate(Navigation.TAB_NAVIGATION, {
+        screen: Navigation.HOME_SCREEN,
+      });
+    } else {
+      // @ts-ignore
+      navigation.navigate(next);
+    }
+  };
   return (
     <View
       className={clsx(
@@ -41,14 +58,7 @@ const OnboardHeader = ({next}: Props) => {
         <Svg.LeftCaret />
       </TouchableOpacity>
 
-      <TouchableOpacity
-        onPress={() =>
-          next === 'Home'
-            ? // @ts-ignore
-              navigation.navigate('HomeNavigation', {screen: 'Home'})
-            : // @ts-ignore
-              navigation.navigate(next)
-        }>
+      <TouchableOpacity onPress={() => onNavigate(next)}>
         <Text className="text-primary text-base font-medium">skip</Text>
       </TouchableOpacity>
     </View>
