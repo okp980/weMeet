@@ -1,20 +1,23 @@
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Dimensions, StyleSheet, TouchableOpacity, View} from 'react-native';
 import React, {useEffect, useRef} from 'react';
-import {Filter, Layout, SwipeCard} from '../../components';
+import {CustomSwiper, Filter, Layout, SwipeCard} from '../../components';
 import Svg from '../../constants/svg';
 import {BottomSheetModal} from '@gorhom/bottom-sheet';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {useAuth} from '../../hooks';
 import {useUsersQuery} from '../../services/modules/user';
 import {dummyCards} from '../../helpers/data';
-import {useSharedValue, withDecay, withSpring} from 'react-native-reanimated';
-import {GestureDetector, Gesture} from 'react-native-gesture-handler';
+import Swiper from 'react-native-deck-swiper';
+
+const {width} = Dimensions.get('screen');
+
+export const cardWidth = width * 0.75;
 
 const Home = ({navigation}: any) => {
   const bottomRef = useRef<BottomSheetModal>(null);
+  const swiperRef = useRef<Swiper<any>>(null);
   const {removeAuth} = useAuth();
   const {data: users, isLoading} = useUsersQuery({limit: 10, page: 1});
-  const activeIndex = useSharedValue(0);
 
   const openFilter = () => {
     bottomRef?.current?.present();
@@ -49,36 +52,26 @@ const Home = ({navigation}: any) => {
 
   return (
     <Layout className="gap-2">
-      <View className="flex-1 items-center ">
-        {dummyCards.map((card, index) => (
-          <SwipeCard
-            info={card}
-            key={index}
-            totalCards={dummyCards.length}
-            index={index}
-            activeIndex={activeIndex}
-          />
-        ))}
+      <View className="flex-1">
+        <CustomSwiper
+          cards={dummyCards}
+          renderCard={card => <SwipeCard info={card} />}
+          ref={swiperRef}
+        />
       </View>
 
       <View className="h-28 flex-row items-center justify-around">
         <TouchableOpacity
           className="h-20 w-20  rounded-full items-center justify-center"
-          style={styles.shadow}>
-          <Svg.Times />
+          style={styles.shadow}
+          onPress={() => swiperRef.current?.swipeLeft()}>
+          <Svg.Times fill={'#F27121'} />
         </TouchableOpacity>
         <TouchableOpacity
           className="h-24 w-24 rounded-full items-center justify-center"
-          style={[
-            styles.shadow,
-            {
-              backgroundColor: '#E94057',
-              shadowColor: '#E94057',
-              shadowRadius: 10,
-              shadowOpacity: 0.25,
-            },
-          ]}>
-          <Svg.Heart />
+          style={[styles.shadow, styles.likeBtn]}
+          onPress={() => swiperRef.current?.swipeRight()}>
+          <Svg.Heart fill={'white'} />
         </TouchableOpacity>
         <TouchableOpacity
           className="h-20 w-20 rounded-full items-center justify-center"
@@ -104,5 +97,11 @@ const styles = StyleSheet.create({
     },
     elevation: 3,
     backgroundColor: 'white',
+  },
+  likeBtn: {
+    backgroundColor: '#E94057',
+    shadowColor: '#E94057',
+    shadowRadius: 10,
+    shadowOpacity: 0.25,
   },
 });
