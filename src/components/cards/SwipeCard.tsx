@@ -15,9 +15,10 @@ import FastImage from 'react-native-fast-image';
 type Props = {
   info: any;
 };
-const {width} = Dimensions.get('screen');
+const {width, height} = Dimensions.get('screen');
 
 export const cardWidth = width * 0.75;
+export const cardHeight = height * 0.5;
 
 const SwipeCard = ({info}: Props) => {
   return (
@@ -53,7 +54,8 @@ export default SwipeCard;
 const styles = StyleSheet.create({
   card: {
     width: cardWidth,
-    aspectRatio: 1 / 1.5,
+    height: cardHeight,
+    // aspectRatio: 1 / 1.5,
     justifyContent: 'flex-end',
   },
   image: {},

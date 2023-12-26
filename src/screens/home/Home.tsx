@@ -1,4 +1,4 @@
-import {Dimensions, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import React, {useEffect, useRef} from 'react';
 import {CustomSwiper, Filter, Layout, SwipeCard} from '../../components';
 import Svg from '../../constants/svg';
@@ -8,10 +8,6 @@ import {useAuth} from '../../hooks';
 import {useUsersQuery} from '../../services/modules/user';
 import {dummyCards} from '../../helpers/data';
 import Swiper from 'react-native-deck-swiper';
-
-const {width} = Dimensions.get('screen');
-
-export const cardWidth = width * 0.75;
 
 const Home = ({navigation}: any) => {
   const bottomRef = useRef<BottomSheetModal>(null);
@@ -100,8 +96,5 @@ const styles = StyleSheet.create({
   },
   likeBtn: {
     backgroundColor: '#E94057',
-    shadowColor: '#E94057',
-    shadowRadius: 10,
-    shadowOpacity: 0.25,
   },
 });

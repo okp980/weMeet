@@ -2,10 +2,11 @@ import {View, Text, StyleSheet, Dimensions} from 'react-native';
 import React, {forwardRef} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import Svg from '../../constants/svg';
-import SwipeCard, {cardWidth} from '../cards/SwipeCard';
+import SwipeCard, {cardHeight, cardWidth} from '../cards/SwipeCard';
 import {dummyCards} from '../../helpers/data';
 import Swiper, {SwiperProps} from 'react-native-deck-swiper';
 import {useNavigation} from '@react-navigation/native';
+import {Navigation} from '../../constants';
 
 type Ref = Swiper<any>;
 type Props = {} & SwiperProps<any>;
@@ -38,7 +39,7 @@ const CustomSwiper = forwardRef<Ref, Props>((props, ref) => {
       backgroundColor="transparent"
       cardStyle={{
         width: cardWidth,
-        height: cardWidth * 1.5,
+        height: cardHeight,
         borderRadius: 16,
       }}
       overlayLabels={{

@@ -1,19 +1,36 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {GalleryModal, PhotoModal, ProfileModal} from '../../screens';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Navigation} from '../../constants';
 import ProfileOnboardingNavigation from '../profile-onboarding/ProfileOnboardingNavigation';
 import TabNavigation from '../tab/TabNavigation';
 import {useAuth} from '../../hooks';
+import {useGetProfileQuery} from '../../services/modules/auth';
+import {ActivityIndicator, View} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
 const HomeNavigation = () => {
-  const {hasOnboardedProfile} = useAuth();
+  const {hasOnboardedProfile, compeleteProfileOnboarding} = useAuth();
+  const {data: profile, isLoading, isSuccess} = useGetProfileQuery();
+
+  useEffect(() => {
+    if (profile && profile?.profile?.passion && !hasOnboardedProfile) {
+      compeleteProfileOnboarding();
+    }
+  }, [isSuccess, profile]);
+
+  if (isLoading)
+    return (
+      <View className="flex-1 items-center justify-center">
+        <ActivityIndicator size={'large'} color={'#E94057'} />
+      </View>
+    );
+
   return (
     <Stack.Navigator
       initialRouteName={
-        hasOnboardedProfile
+        profile?.profile?.passion || hasOnboardedProfile
           ? Navigation.TAB_NAVIGATION
           : Navigation.PROFILE_ONBOARDING_NAVIGATION
       }

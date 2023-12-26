@@ -8,7 +8,7 @@ import {
 import React, {useEffect, useState} from 'react';
 import {Button, CustomInput, Form, Layout} from '../../components';
 import {Controller, useForm} from 'react-hook-form';
-import {Svg} from '../../constants';
+import {Navigation, Svg} from '../../constants';
 import FastImage from 'react-native-fast-image';
 import {checkPermission} from '../../helpers/utils';
 import {launchImageLibrary} from 'react-native-image-picker';
@@ -48,6 +48,7 @@ const BioData = ({navigation}: any) => {
         lastName: profile.profile.lastName || '',
         dateOfBirth: profile.profile.dateOfBirth || '',
       });
+      setSelectedImageURI(`${AWS_S3_LINK}/${profile.profile.image}`);
     }
     if (error) {
       showMessage({
@@ -65,6 +66,7 @@ const BioData = ({navigation}: any) => {
       // await checkPermission('camera');
       const response = await launchImageLibrary({mediaType: 'photo'});
       if (response.errorMessage) {
+        console.log(response.errorMessage);
       }
       if (response.assets) {
         // @ts-ignore
@@ -74,10 +76,17 @@ const BioData = ({navigation}: any) => {
             type: 'danger',
           });
         }
-        // @ts-ignore
-        setSelectedImageURI(response.assets[0].uri);
+
+        if (Platform.OS === 'android') {
+          // @ts-ignore
+          setSelectedImageURI(response.assets[0].uri);
+        } else {
+          // @ts-ignore
+          setSelectedImageURI(response.assets[0].uri.replace('file://', ''));
+        }
       }
     } catch (error: any) {
+      console.log(error);
       if (typeof error === 'string') {
         showMessage({message: error, type: 'danger'});
       }
@@ -87,17 +96,21 @@ const BioData = ({navigation}: any) => {
   const onSubmit = async (data: FormValues) => {
     const formData = new FormData();
 
-    formData.append('image', {
-      uri: selectedImageURI,
-      name: 'image.jpg',
-      type: 'image/jpeg',
-    });
+    console.log('submitting file', selectedImageURI);
+
+    if (selectedImageURI.trim() !== '') {
+      formData.append('image', {
+        uri: selectedImageURI,
+        name: 'image.jpg',
+        type: 'image/jpeg',
+      });
+    }
     formData.append('firstName', data.firstName);
     formData.append('lastName', data.lastName);
     formData.append('dateOfBirth', data.dateOfBirth);
     try {
       await updateBioData(formData).unwrap();
-      navigation.navigate('Gender');
+      navigation.navigate(Navigation.GENDER_SCREEN);
     } catch (error: any) {
       console.log(error);
       showMessage({
