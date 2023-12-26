@@ -1,12 +1,20 @@
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import React, {useEffect, useRef} from 'react';
-import {CustomText, Filter, Layout} from '../../components';
+import {Filter, Layout, SwipeCard} from '../../components';
 import Svg from '../../constants/svg';
 import {BottomSheetModal} from '@gorhom/bottom-sheet';
-import {Navigation} from '../../constants';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import {useAuth} from '../../hooks';
+import {useUsersQuery} from '../../services/modules/user';
+import {dummyCards} from '../../helpers/data';
+import {useSharedValue, withDecay, withSpring} from 'react-native-reanimated';
+import {GestureDetector, Gesture} from 'react-native-gesture-handler';
 
 const Home = ({navigation}: any) => {
   const bottomRef = useRef<BottomSheetModal>(null);
+  const {removeAuth} = useAuth();
+  const {data: users, isLoading} = useUsersQuery({limit: 10, page: 1});
+  const activeIndex = useSharedValue(0);
 
   const openFilter = () => {
     bottomRef?.current?.present();
@@ -26,23 +34,33 @@ const Home = ({navigation}: any) => {
     });
   }, []);
 
+  const signOut = async () => {
+    try {
+      const signout = await GoogleSignin.signOut();
+      console.log(signout);
+      console.log('ssigned out');
+      removeAuth();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // signOut();
+
   return (
     <Layout className="gap-2">
-      <View className="flex-1 items-center relative">
-        <TouchableOpacity
-          onPress={() => navigation.navigate(Navigation.PROFILE_MODAL)}
-          className="flex-1 justify-end rounded-2xl w-full max-w-[295px] p-5">
-          <View className="z-20">
-            <CustomText as="h1" color="white">
-              Jessica Parker, 23
-            </CustomText>
-            <CustomText as="small" color="white">
-              Professional Model
-            </CustomText>
-          </View>
-          <View className="absolute top-0 left-0 right-0 bottom-0 rounded-2xl opacity-25 bg-gray-900" />
-        </TouchableOpacity>
+      <View className="flex-1 items-center ">
+        {dummyCards.map((card, index) => (
+          <SwipeCard
+            info={card}
+            key={index}
+            totalCards={dummyCards.length}
+            index={index}
+            activeIndex={activeIndex}
+          />
+        ))}
       </View>
+
       <View className="h-28 flex-row items-center justify-around">
         <TouchableOpacity
           className="h-20 w-20  rounded-full items-center justify-center"

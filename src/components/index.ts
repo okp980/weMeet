@@ -14,3 +14,4 @@ export {default as CustomRangeSlider} from './customRangeSlider/CustomRangeSlide
 export {default as MatchCard} from './cards/MatchCard';
 export {default as ActivityCard} from './cards/ActivityCard';
 export {default as MessageCard} from './cards/MessageCard';
+export {default as SwipeCard} from './cards/SwipeCard';
