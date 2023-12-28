@@ -1,4 +1,9 @@
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {
+  ActivityIndicator,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, {useEffect, useRef} from 'react';
 import {CustomSwiper, Filter, Layout, SwipeCard} from '../../components';
 import Svg from '../../constants/svg';
@@ -45,6 +50,13 @@ const Home = ({navigation}: any) => {
   };
 
   // signOut();
+
+  if (isLoading)
+    return (
+      <View className="flex-1 items-center justify-center">
+        <ActivityIndicator size={'small'} color={'#E94057'} />
+      </View>
+    );
 
   return (
     <Layout className="gap-2">

@@ -24,10 +24,10 @@ const MatchCard = ({match: {image, name, age}}: Props) => {
         </View>
         <View className="flex-row h-10 w-full">
           <TouchableOpacity className="flex-1 items-center justify-center bg-red-200 rounded-bl-2xl">
-            <Svg.Times width={20} height={20} />
+            <Svg.Times width={20} height={20} fill={'white'} />
           </TouchableOpacity>
           <TouchableOpacity className="flex-1 items-center justify-center bg-blue-200 rounded-br-2xl">
-            <Svg.Heart width={20} height={20} />
+            <Svg.Heart width={20} height={20} fill={'white'} />
           </TouchableOpacity>
         </View>
       </View>
