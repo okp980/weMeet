@@ -28,7 +28,7 @@ setup_permissions([
   # 'MediaLibrary',
   # 'Microphone',
   # 'Motion',
-  # 'Notifications',
+  'Notifications',
   'PhotoLibrary',
   # 'PhotoLibraryAddOnly',
   # 'Reminders',
@@ -61,7 +61,10 @@ target 'weMeet' do
   flags = get_default_flags()
 
  
-  pod 'GoogleUtilities', :modular_headers => true;
+  pod 'Firebase', :modular_headers => true
+  pod 'FirebaseCoreInternal', :modular_headers => true
+  pod 'FirebaseCore', :modular_headers => true
+  pod 'GoogleUtilities', :modular_headers => true
 
   use_react_native!(
     :path => config[:reactNativePath],

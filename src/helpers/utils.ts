@@ -1,5 +1,6 @@
 import {Platform} from 'react-native';
 import {check, PERMISSIONS, request, RESULTS} from 'react-native-permissions';
+import messaging from '@react-native-firebase/messaging';
 
 export const selectPermission = (type: string): any => {
   return Platform.select({
@@ -59,4 +60,23 @@ export const getTwoDimensionalArray = <T>(singleArray: T[]): T[][] => {
 
     return [[curr]];
   }, []);
+};
+
+export const androidNotificationPermission = async () => {
+  return await request(PERMISSIONS.ANDROID.POST_NOTIFICATIONS);
+};
+
+export const iosNotificationPermission = async (): Promise<boolean> => {
+  const authStatus = await messaging().requestPermission({
+    providesAppNotificationSettings: true,
+  });
+  return (
+    authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+    authStatus === messaging.AuthorizationStatus.PROVISIONAL
+  );
+};
+
+export const getFCMToken = async () => {
+  await messaging().registerDeviceForRemoteMessages();
+  return await messaging().getToken();
 };
