@@ -5,7 +5,7 @@ import {
   useNavigationContainerRef,
 } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {useFlipper} from '@react-navigation/devtools';
+// import {useFlipper} from '@react-navigation/devtools';
 import messaging from '@react-native-firebase/messaging';
 
 import AuthNavigation from './auth/Auth';
@@ -29,7 +29,7 @@ const Main = () => {
   const [initialRoute, setInitialRoute] = useState(
     token ? Navigation.HOME_NAVIGATION : Navigation.AUTH_NAVIGATION,
   );
-  useFlipper(navigationRef);
+  // useFlipper(navigationRef);
 
   useEffect(() => {
     handlePermissions();
@@ -53,10 +53,6 @@ const Main = () => {
       // Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
       console.log('Onmessage caught this', remoteMessage);
     });
-    return unsubscribe;
-  }, []);
-
-  useEffect(() => {
     messaging().onNotificationOpenedApp((remoteMessage: any) => {
       switch (remoteMessage.data.type) {
         case Navigation.PROFILE_MODAL:
@@ -79,10 +75,11 @@ const Main = () => {
             'Notification caused app to open from quit state:',
             remoteMessage.notification,
           );
-          setInitialRoute(remoteMessage.data.type); // e.g. "Settings"
+          setInitialRoute(remoteMessage.data.type);
         }
         setLoading(false);
       });
+    return unsubscribe;
   }, []);
 
   if (loading) {
