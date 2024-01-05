@@ -1,11 +1,17 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {RootState} from '.';
-import {AuthPayload, AuthState, OnboardedProfilePayload} from '../types/auth';
+import {
+  AuthPayload,
+  AuthState,
+  FcmTokenPayload,
+  OnboardedProfilePayload,
+} from '../types/auth';
 
 const initialState: AuthState = {
   token: null,
   user: null,
   hasOnboardedProfile: false,
+  fcmToken: null,
 };
 
 const slice = createSlice({
@@ -25,12 +31,25 @@ const slice = createSlice({
     ) => {
       state.hasOnboardedProfile = onboarded;
     },
+    setFcmToken: (state, {payload: {fcmToken}}: FcmTokenPayload) => {
+      state.fcmToken = fcmToken;
+    },
+    clearFcmToken: state => {
+      state.fcmToken = null;
+    },
   },
 });
 
-export const {authenticate, clearAuth, setHasOnboardedProfile} = slice.actions;
+export const {
+  authenticate,
+  clearAuth,
+  setHasOnboardedProfile,
+  setFcmToken,
+  clearFcmToken,
+} = slice.actions;
 export const selectAuth = (state: RootState) => state.auth.token;
 export const selectUser = (state: RootState) => state.auth.user;
 export const selectHasOnboardedProfile = (state: RootState) =>
   state.auth.hasOnboardedProfile;
+export const selectFcmToken = (state: RootState) => state.auth.fcmToken;
 export default slice.reducer;

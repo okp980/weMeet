@@ -15,7 +15,7 @@ const {Apple, Facebook, Google, Logo} = Svg;
 
 const SignIn = () => {
   const [signInWithSocial, {isLoading}] = useSignInWithSocialMutation();
-  const {authenticateUser, removeAuth} = useAuth();
+  const {authenticateUser, removeAuth, fcmToken} = useAuth();
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
@@ -23,6 +23,7 @@ const SignIn = () => {
       const response = await signInWithSocial({
         token: userInfo.idToken!,
         provider: SocialProvider.GOOGLE,
+        fcmToken,
       }).unwrap();
       authenticateUser(response.access_token);
     } catch (error: any) {
@@ -40,9 +41,7 @@ const SignIn = () => {
         console.log('wild card', error);
         showMessage({
           type: 'danger',
-          message:
-            error.toString().replace(/[]/gi, '') ??
-            'Error signing in with Google',
+          message: error?.data?.error ?? 'Error signing in with Google',
         });
       }
     }

@@ -1,4 +1,4 @@
-import {SafeAreaView, StatusBar} from 'react-native';
+import {Platform, SafeAreaView, StatusBar} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {
   NavigationContainer,
@@ -10,18 +10,20 @@ import messaging from '@react-native-firebase/messaging';
 
 import AuthNavigation from './auth/Auth';
 import {useAuth} from '../hooks';
-import {Navigation} from '../constants';
+import {Navigation, Tag} from '../constants';
 import HomeNavigation from './home/HomeNavigation';
 import {
   androidNotificationPermission,
   getFCMToken,
   iosNotificationPermission,
 } from '../helpers/utils';
+import {api} from '../services/api';
 
 const Stack = createNativeStackNavigator();
 
 const Main = () => {
   const [loading, setLoading] = useState(true);
+  const {addFcmToken} = useAuth();
 
   const navigationRef = useNavigationContainerRef<any>();
 
@@ -36,13 +38,16 @@ const Main = () => {
   }, []);
 
   const handlePermissions = async () => {
-    androidNotificationPermission();
+    if (Platform.OS === 'android') {
+      androidNotificationPermission();
+    }
     const enabled = await iosNotificationPermission();
+    console.log('is enabled', enabled);
+
     if (enabled) {
       const token = await getFCMToken();
       console.log('FCM Token', token);
-
-      //TODO: save to global state
+      addFcmToken(token);
       //TODO: clear token when user signs out from app and server(remove from db)
     }
   };
@@ -55,10 +60,11 @@ const Main = () => {
     });
     messaging().onNotificationOpenedApp((remoteMessage: any) => {
       switch (remoteMessage.data.type) {
-        case Navigation.PROFILE_MODAL:
+        case Navigation.MATCH_SCREEN:
           navigationRef.navigate(Navigation.HOME_NAVIGATION, {
-            screen: Navigation.PROFILE_MODAL,
+            screen: Navigation.MATCH_SCREEN,
           });
+          api.util.invalidateTags([Tag.MEET_TAG]);
           break;
 
         default:

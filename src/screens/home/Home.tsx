@@ -13,12 +13,16 @@ import {useAuth} from '../../hooks';
 import {useUsersQuery} from '../../services/modules/user';
 import {dummyCards} from '../../helpers/data';
 import Swiper from 'react-native-deck-swiper';
+import {useRequestMeetMutation} from '../../services/modules/meet';
 
 const Home = ({navigation}: any) => {
   const bottomRef = useRef<BottomSheetModal>(null);
   const swiperRef = useRef<Swiper<any>>(null);
   const {removeAuth} = useAuth();
   const {data: users, isLoading} = useUsersQuery({limit: 10, page: 1});
+  const [sendRequest] = useRequestMeetMutation();
+
+  console.log(users);
 
   const openFilter = () => {
     bottomRef?.current?.present();
@@ -62,9 +66,17 @@ const Home = ({navigation}: any) => {
     <Layout className="gap-2">
       <View className="flex-1">
         <CustomSwiper
-          cards={dummyCards}
+          cards={users?.data as any}
           renderCard={card => <SwipeCard info={card} />}
           ref={swiperRef}
+          onSwipedRight={async (cardIndex: number) => {
+            console.log('id of the user is ', users?.data[cardIndex]?.id);
+
+            const so = await sendRequest({
+              recipient: users?.data[cardIndex]?.id as number,
+            }).unwrap();
+            console.log('soooo', so);
+          }}
         />
       </View>
 

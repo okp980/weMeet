@@ -12,37 +12,24 @@ export enum SocialProvider {
   APPLE = 'apple',
 }
 
-// export interface User {
-//   image: string;
-
-//   firstName: string;
-
-//   lastName: string;
-
-//   gender: string;
-
-//   dateOfBirth: string;
-
-//   passion: string[];
-
-//   getNotifications: boolean;
-
-//   email: string;
-// }
-
 export interface SignInWithSocialBody {
   token: string;
   provider: SocialProvider;
+  fcmToken: string | null;
 }
 
 export interface AuthState {
   token: string | null;
   user: User | null;
   hasOnboardedProfile: boolean;
+  fcmToken: string | null;
 }
 
 export interface AuthPayload {
   payload: Pick<NonNullable<AuthState>, 'token'>;
+}
+export interface FcmTokenPayload {
+  payload: Pick<NonNullable<AuthState>, 'fcmToken'>;
 }
 
 export interface OnboardedProfilePayload {
@@ -55,7 +42,7 @@ export interface AuthResponse {
 
 export interface Profile {
   createdAt: string;
-  dateOfBirth: string;
+  age: number;
   email: string;
   firstName: string;
   gender: string;
@@ -70,7 +57,6 @@ export interface Profile {
 
 export interface User {
   createdAt: string;
-
   email: string;
   id: number;
   provider: string;

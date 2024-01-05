@@ -2,12 +2,15 @@ import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import {View, TouchableOpacity} from 'react-native';
 import Svg from '../../constants/svg';
 import {Navigation} from '../../constants';
+import CustomText from '../customText/CustomText';
+import {useNotification} from '../../hooks';
 
 export default function CustomTabBar({
   state,
   descriptors,
   navigation,
 }: BottomTabBarProps) {
+  const {hasMatchRequest} = useNotification();
   return (
     <View style={{flexDirection: 'row'}}>
       {state.routes.map((route, index) => {
@@ -27,10 +30,29 @@ export default function CustomTabBar({
             icon = <Svg.Home fill={isFocused ? '#E94057' : '#ADAFBB'} />;
             break;
           case Navigation.MATCH_SCREEN.toLowerCase():
-            icon = <Svg.Match fill={isFocused ? '#E94057' : '#ADAFBB'} />;
+            icon = (
+              <View>
+                <Svg.Heart
+                  width={23}
+                  fill={isFocused ? '#E94057' : '#ADAFBB'}
+                />
+                {hasMatchRequest && (
+                  <View className="bg-[#E94057] h-3 w-3 justify-center items-center rounded-full absolute top-[6px] right-[-4px] border border-[#F3F3F3]" />
+                )}
+              </View>
+            );
             break;
           case Navigation.CHAT_SCREEN.toLowerCase():
-            icon = <Svg.Message fill={isFocused ? '#E94057' : '#ADAFBB'} />;
+            icon = (
+              <View>
+                <Svg.Message fill={isFocused ? '#E94057' : '#ADAFBB'} />
+                <View className="bg-[#E94057] h-4 w-4 justify-center items-center rounded-full absolute top-[-4px] right-[-4px] border border-[#F3F3F3]">
+                  <CustomText as="tiny" color="white">
+                    5
+                  </CustomText>
+                </View>
+              </View>
+            );
             break;
           case Navigation.PROFILE_SCREEN.toLowerCase():
             icon = <Svg.Person fill={isFocused ? '#E94057' : '#ADAFBB'} />;

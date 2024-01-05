@@ -1,6 +1,8 @@
 import {Platform} from 'react-native';
 import {check, PERMISSIONS, request, RESULTS} from 'react-native-permissions';
 import messaging from '@react-native-firebase/messaging';
+import {format, isToday, isYesterday} from 'date-fns';
+import {MatchData, MeetResponse} from '../types/meet';
 
 export const selectPermission = (type: string): any => {
   return Platform.select({
@@ -79,4 +81,39 @@ export const iosNotificationPermission = async (): Promise<boolean> => {
 export const getFCMToken = async () => {
   await messaging().registerDeviceForRemoteMessages();
   return await messaging().getToken();
+};
+
+export const getMatchTimeline = (date: string) => {
+  if (isToday(new Date(date))) {
+    return 'today';
+  }
+  if (isYesterday(new Date(date))) {
+    return 'yesterday';
+  }
+
+  return format(new Date(date), 'dd-MM-yyyy');
+};
+
+export const getMatchData = (data: MeetResponse[]): MatchData => {
+  return data.reduce((prev: MatchData, {createdAt, ...curr}) => {
+    if (prev.some(item => item.title === getMatchTimeline(createdAt))) {
+      const index = prev.findIndex(
+        item => item.title === getMatchTimeline(createdAt),
+      );
+      return [
+        ...prev,
+        {
+          title: prev[index].title,
+          data: [...prev[index].data, {createdAt, ...curr}],
+        },
+      ];
+    }
+    return [
+      ...prev,
+      {
+        title: getMatchTimeline(createdAt),
+        data: [{createdAt, ...curr}],
+      },
+    ];
+  }, []);
 };

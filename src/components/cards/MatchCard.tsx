@@ -3,23 +3,22 @@ import React from 'react';
 import FastImage from 'react-native-fast-image';
 import CustomText from '../customText/CustomText';
 import Svg from '../../constants/svg';
+import {MeetResponse} from '../../types/meet';
 
-type Props = {
-  match: any;
-};
+const MatchCard = ({creator, id}: MeetResponse) => {
+  console.log('creator: ' + JSON.stringify(creator));
 
-const MatchCard = ({match: {image, name, age}}: Props) => {
   return (
     <View className="w-[45%] m-3 rounded-2xl h-52 bg-orange-200">
       <FastImage
-        source={{uri: image}}
+        source={{uri: creator?.profile?.image}}
         className="rounded-2xl"
         style={{height: '100%', width: '100%'}}
       />
       <View className="absolute bottom-0 w-full z-10">
         <View className="px-3 py-1">
           <CustomText as="h3" color="white">
-            {name}, {age}
+            {creator?.profile?.firstName}, {creator?.profile?.age}
           </CustomText>
         </View>
         <View className="flex-row h-10 w-full">

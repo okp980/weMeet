@@ -7,6 +7,7 @@ import {dummyCards} from '../../helpers/data';
 import Swiper, {SwiperProps} from 'react-native-deck-swiper';
 import {useNavigation} from '@react-navigation/native';
 import {Navigation} from '../../constants';
+import {User} from '../../types/auth';
 
 type Ref = Swiper<any>;
 type Props = {} & SwiperProps<any>;
@@ -20,7 +21,7 @@ const CustomSwiper = forwardRef<Ref, Props>((props, ref) => {
       ref={ref}
       stackSize={2}
       verticalSwipe={false}
-      infinite={true}
+      // infinite={true}
       stackSeparation={-20}
       cardHorizontalMargin={(width - 40 - cardWidth) / 2}
       cardVerticalMargin={10}

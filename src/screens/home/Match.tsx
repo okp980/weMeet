@@ -1,7 +1,14 @@
-import {View, Text, SectionList, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  SectionList,
+  FlatList,
+  ActivityIndicator,
+} from 'react-native';
 import React from 'react';
 import {CustomText, Layout, MatchCard} from '../../components';
-import {matches} from '../../helpers/data';
+import {useGetMeetsQuery} from '../../services/modules/meet';
+import {getMatchData} from '../../helpers/utils';
 
 type Props = {};
 
@@ -20,7 +27,7 @@ const RenderSection = ({data}: {data: any}) => {
     <FlatList
       data={data}
       numColumns={2}
-      renderItem={({item}) => <MatchCard match={item} />}
+      renderItem={({item}) => <MatchCard {...item} />}
       keyExtractor={(item, index) => item.name + index}
       showsVerticalScrollIndicator={false}
     />
@@ -28,6 +35,37 @@ const RenderSection = ({data}: {data: any}) => {
 };
 
 const Match = (props: Props) => {
+  const {
+    data: matches,
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useGetMeetsQuery({status: 'pending'});
+  console.log(matches);
+
+  if (isLoading)
+    return (
+      <View className="flex-1 justify-center items-center">
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  if (isError)
+    return (
+      <View className="flex-1 justify-center items-center">
+        <CustomText as="regular" className="bg-red-500 p-7" color="white">
+          {/* @ts-ignore */}
+          {error?.data?.message ?? 'Error Fetching Data'}
+        </CustomText>
+      </View>
+    );
+  if (matches?.length === 0 && isSuccess) {
+    return (
+      <View className="flex-1 justify-center items-center">
+        <CustomText as="regular">No Likes yet</CustomText>
+      </View>
+    );
+  }
   return (
     <Layout>
       <CustomText as="regular">
@@ -35,8 +73,8 @@ const Match = (props: Props) => {
       </CustomText>
       <SectionList
         className="mt-8"
-        sections={matches}
-        keyExtractor={(item, index) => item.name + index}
+        sections={getMatchData(matches!)}
+        keyExtractor={(item, index) => index.toString()}
         renderSectionHeader={({section: {title}}) => <Title title={title} />}
         renderItem={({section: {data}}) => <RenderSection data={data} />}
         showsVerticalScrollIndicator={false}

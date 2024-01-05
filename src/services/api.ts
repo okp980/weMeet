@@ -7,6 +7,7 @@ import {
 } from '@reduxjs/toolkit/query/react';
 import {RootState} from '../store';
 import {clearAuth} from '../store/auth';
+import {Tag} from '../constants';
 
 interface CustomError {
   data: {message: string; statusCode: number};
@@ -45,4 +46,5 @@ export const api = createApi({
     {}
   >,
   endpoints: () => ({}),
+  tagTypes: [Tag.MEET_TAG],
 });

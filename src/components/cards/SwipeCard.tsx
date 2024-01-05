@@ -11,9 +11,10 @@ import {useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import CustomText from '../customText/CustomText';
 import FastImage from 'react-native-fast-image';
+import {User} from '../../types/auth';
 
 type Props = {
-  info: any;
+  info: User;
 };
 const {width, height} = Dimensions.get('screen');
 
@@ -29,7 +30,7 @@ const SwipeCard = ({info}: Props) => {
 
     <View style={[styles.card]} className="rounded-2xl">
       <FastImage
-        source={{uri: info.image}}
+        source={{uri: info?.profile?.image}}
         style={[styles.image, StyleSheet.absoluteFillObject]}
         className="rounded-2xl"
       />
@@ -40,7 +41,7 @@ const SwipeCard = ({info}: Props) => {
       />
       <View style={styles.info}>
         <CustomText as="h2" color="white">
-          {info.name}, {info.age}
+          {info?.profile?.firstName}, {info?.profile?.gender}
         </CustomText>
       </View>
     </View>
