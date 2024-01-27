@@ -1,3 +1,4 @@
 const MEET_TAG = 'MEET_TAG';
+const MEET_REQUEST_TAG = 'MEET_REQUEST_TAG';
 
-export default {MEET_TAG};
+export default {MEET_TAG, MEET_REQUEST_TAG};

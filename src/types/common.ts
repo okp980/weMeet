@@ -4,6 +4,7 @@ export interface Paginated<T> {
   nextPage: number | null;
   previousPage: number | null;
   totalPages: number;
+  currentUserId?: number;
   data: T[];
 }
 

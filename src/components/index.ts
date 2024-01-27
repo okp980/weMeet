@@ -6,6 +6,7 @@ export {default as CustomInput} from './customInput/CustomInput';
 export {default as Form} from './form/Form';
 export {default as Birthday} from './modals/Birthday';
 export {default as Filter} from './modals/Filter';
+export {default as Message} from './modals/Message';
 export {default as CustomTabBar} from './customTabBar/CustomTabBar';
 export {default as CustomText} from './customText/CustomText';
 

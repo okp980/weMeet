@@ -32,6 +32,7 @@
     "react-native-fast-image": "^8.6.3",
     "react-native-flash-message": "^0.4.2",
     "react-native-gesture-handler": "^2.14.0",
+    "react-native-gifted-chat": "^2.4.0",
     "react-native-image-picker": "^7.1.0",
     "react-native-linear-gradient": "^2.8.3",
     "react-native-mmkv": "^2.11.0",
@@ -44,7 +45,8 @@
     "react-redux": "^9.0.2",
     "redux-flipper": "^2.0.2",
     "redux-persist": "^6.0.0",
-    "rn-range-slider": "^2.2.2"
+    "rn-range-slider": "^2.2.2",
+    "socket.io-client": "^4.7.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

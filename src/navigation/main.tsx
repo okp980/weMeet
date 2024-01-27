@@ -9,7 +9,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import messaging from '@react-native-firebase/messaging';
 
 import AuthNavigation from './auth/Auth';
-import {useAuth} from '../hooks';
+import {useAuth, useNotification} from '../hooks';
 import {Navigation, Tag} from '../constants';
 import HomeNavigation from './home/HomeNavigation';
 import {
@@ -31,6 +31,7 @@ const Main = () => {
   const [initialRoute, setInitialRoute] = useState(
     token ? Navigation.HOME_NAVIGATION : Navigation.AUTH_NAVIGATION,
   );
+  const {changeHasMatchRequest} = useNotification();
   // useFlipper(navigationRef);
 
   useEffect(() => {
@@ -54,9 +55,7 @@ const Main = () => {
 
   useEffect(() => {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
-      //
-      // Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-      console.log('Onmessage caught this', remoteMessage);
+      changeHasMatchRequest(true);
     });
     messaging().onNotificationOpenedApp((remoteMessage: any) => {
       switch (remoteMessage.data.type) {

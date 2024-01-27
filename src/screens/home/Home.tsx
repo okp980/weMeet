@@ -13,7 +13,7 @@ import {useAuth} from '../../hooks';
 import {useUsersQuery} from '../../services/modules/user';
 import {dummyCards} from '../../helpers/data';
 import Swiper from 'react-native-deck-swiper';
-import {useRequestMeetMutation} from '../../services/modules/meet';
+import {useRequestMeetMutation} from '../../services/modules/meet-request';
 
 const Home = ({navigation}: any) => {
   const bottomRef = useRef<BottomSheetModal>(null);
@@ -66,7 +66,7 @@ const Home = ({navigation}: any) => {
     <Layout className="gap-2">
       <View className="flex-1">
         <CustomSwiper
-          cards={users?.data as any}
+          cards={(users?.data as any) ?? []}
           renderCard={card => <SwipeCard info={card} />}
           ref={swiperRef}
           onSwipedRight={async (cardIndex: number) => {

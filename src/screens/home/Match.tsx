@@ -5,10 +5,11 @@ import {
   FlatList,
   ActivityIndicator,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {CustomText, Layout, MatchCard} from '../../components';
-import {useGetMeetsQuery} from '../../services/modules/meet';
+import {useGetMeetRequestsQuery} from '../../services/modules/meet-request';
 import {getMatchData} from '../../helpers/utils';
+import {useNotification} from '../../hooks';
 
 type Props = {};
 
@@ -16,7 +17,9 @@ const Title = ({title}: {title: string}) => (
   <View className="flex-row items-center py-1 bg-white">
     <View className="h-[1px] flex-1 bg-[#E8E6EA]" />
     <View className="flex-1 items-center">
-      <CustomText as="small">{title}</CustomText>
+      <CustomText as="small" className="capitalize">
+        {title}
+      </CustomText>
     </View>
     <View className="h-[1px] flex-1 bg-[#E8E6EA]" />
   </View>
@@ -35,14 +38,18 @@ const RenderSection = ({data}: {data: any}) => {
 };
 
 const Match = (props: Props) => {
+  const {changeHasMatchRequest} = useNotification();
   const {
     data: matches,
     isLoading,
     isSuccess,
     isError,
     error,
-  } = useGetMeetsQuery({status: 'pending'});
-  console.log(matches);
+  } = useGetMeetRequestsQuery({status: 'pending'});
+
+  useEffect(() => {
+    changeHasMatchRequest(false);
+  }, []);
 
   if (isLoading)
     return (

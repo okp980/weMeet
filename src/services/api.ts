@@ -46,5 +46,5 @@ export const api = createApi({
     {}
   >,
   endpoints: () => ({}),
-  tagTypes: [Tag.MEET_TAG],
+  tagTypes: [Tag.MEET_TAG, Tag.MEET_REQUEST_TAG],
 });

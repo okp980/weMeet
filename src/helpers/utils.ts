@@ -2,7 +2,11 @@ import {Platform} from 'react-native';
 import {check, PERMISSIONS, request, RESULTS} from 'react-native-permissions';
 import messaging from '@react-native-firebase/messaging';
 import {format, isToday, isYesterday} from 'date-fns';
-import {MatchData, MeetResponse} from '../types/meet';
+import {
+  MatchRequestData,
+  MeetRequestResponse,
+  MeetResponse,
+} from '../types/meet';
 
 export const selectPermission = (type: string): any => {
   return Platform.select({
@@ -94,8 +98,8 @@ export const getMatchTimeline = (date: string) => {
   return format(new Date(date), 'dd-MM-yyyy');
 };
 
-export const getMatchData = (data: MeetResponse[]): MatchData => {
-  return data.reduce((prev: MatchData, {createdAt, ...curr}) => {
+export const getMatchData = (data: MeetRequestResponse[]): MatchRequestData => {
+  return data.reduce((prev: MatchRequestData, {createdAt, ...curr}) => {
     if (prev.some(item => item.title === getMatchTimeline(createdAt))) {
       const index = prev.findIndex(
         item => item.title === getMatchTimeline(createdAt),

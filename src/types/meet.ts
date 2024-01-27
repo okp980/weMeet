@@ -1,8 +1,9 @@
 import {User} from './auth';
+import {IQueryParams, Paginated} from './common';
 
-type MeetStatus = 'pending' | 'accepted' | 'rejected';
+type MeetRequestStatus = 'pending' | 'accepted' | 'rejected';
 
-export interface MeetResponse {
+export interface MeetRequestResponse {
   id: number;
   recipient: User;
   status: string;
@@ -10,19 +11,24 @@ export interface MeetResponse {
   createdAt: string;
   updatedAt: string;
 }
+export interface MeetResponse extends Paginated<MeetRequestResponse> {}
+export interface MeetQuery extends IQueryParams {}
 
-export type MatchData = {
+export type MatchRequestData = {
   title: string;
-  data: MeetResponse[];
+  data: MeetRequestResponse[];
 }[];
 
-export interface MeetBody {
+export interface MeetRequestParam {
+  id: number;
+}
+export interface MeetRequestBody {
   recipient: number;
 }
-export interface MeetQuery {
-  status: MeetStatus;
+export interface MeetRequestQuery {
+  status: MeetRequestStatus;
 }
-export interface MeetUpdateBody {
+export interface MeetRequestUpdateBody {
   id: number;
-  status: string;
+  status: 'accepted' | 'rejected';
 }

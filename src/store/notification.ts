@@ -6,7 +6,7 @@ import {
 } from '../types/notification';
 
 const initialState: NotificationState = {
-  hasMatchRequest: true,
+  hasMatchRequest: false,
 };
 
 const slice = createSlice({
