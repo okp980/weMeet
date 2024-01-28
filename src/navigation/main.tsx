@@ -1,5 +1,5 @@
-import {Platform, SafeAreaView, StatusBar} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {AppState, Platform, SafeAreaView, StatusBar} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   NavigationContainer,
   useNavigationContainerRef,
@@ -18,11 +18,14 @@ import {
   iosNotificationPermission,
 } from '../helpers/utils';
 import {api} from '../services/api';
+import socket from '../services/socket';
 
 const Stack = createNativeStackNavigator();
 
 const Main = () => {
   const [loading, setLoading] = useState(true);
+  const appState = useRef(AppState.currentState);
+  const [appStateVisible, setAppStateVisible] = useState(appState.current);
   const {addFcmToken} = useAuth();
 
   const navigationRef = useNavigationContainerRef<any>();
@@ -33,6 +36,26 @@ const Main = () => {
   );
   const {changeHasMatchRequest} = useNotification();
   // useFlipper(navigationRef);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', nextAppState => {
+      appState.current = nextAppState;
+      setAppStateVisible(appState.current);
+    });
+
+    return () => {
+      subscription.remove();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (appStateVisible === 'active' && token) {
+      socket.emit('updateActiveStatus', {isActive: true});
+    }
+    return () => {
+      socket.emit('updateActiveStatus', {isActive: false});
+    };
+  }, [appStateVisible, socket]);
 
   useEffect(() => {
     handlePermissions();
