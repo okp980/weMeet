@@ -1,6 +1,6 @@
 import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
 import React from 'react';
-import {CustomText, Layout, ProfileItem} from '../../components';
+import {CustomText, Layout, ProfileItem, ThemeToggle} from '../../components';
 import FastImage from 'react-native-fast-image';
 import {Svg, Navigation} from '../../constants';
 
@@ -30,12 +30,13 @@ const Profile = (props: Props) => {
           </CustomText>
         </View>
       </View>
-      <ScrollView className="flex-1 ">
+      <ScrollView className="flex-1">
         <ProfileItem
           title="Edit Profile"
           icon={<Svg.Person fill={'white'} width={16} />}
           to={Navigation.EDIT_PROFILE_SCREEN}
         />
+        <ThemeToggle />
       </ScrollView>
     </Layout>
   );
