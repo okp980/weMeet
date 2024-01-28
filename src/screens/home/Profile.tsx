@@ -1,6 +1,12 @@
 import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
 import React from 'react';
-import {CustomText, Layout, ProfileItem, ThemeToggle} from '../../components';
+import {
+  CustomText,
+  Layout,
+  NotificationToggle,
+  ProfileItem,
+  ThemeToggle,
+} from '../../components';
 import FastImage from 'react-native-fast-image';
 import {Svg, Navigation} from '../../constants';
 
@@ -37,6 +43,7 @@ const Profile = (props: Props) => {
           to={Navigation.EDIT_PROFILE_SCREEN}
         />
         <ThemeToggle />
+        <NotificationToggle />
       </ScrollView>
     </Layout>
   );

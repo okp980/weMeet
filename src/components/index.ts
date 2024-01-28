@@ -19,3 +19,4 @@ export {default as SwipeCard} from './cards/SwipeCard';
 export {default as CustomSwiper} from './customSwiper/CustomSwiper';
 export {default as ProfileItem} from './profileItem/ProfileItem';
 export {default as ThemeToggle} from './themeToggle/ThemeToggle';
+export {default as NotificationToggle} from './notificationToggle/NotificationToggle';
