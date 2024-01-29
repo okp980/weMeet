@@ -61,7 +61,7 @@ const Profile = ({navigation}: any) => {
         <NotificationToggle />
         <View className="mt-4 border-t border-b py-4 border-gray-300">
           <ProfileItem
-            title="Terms of service"
+            title="Terms and conditions"
             icon={
               <View className="rounded bg-primary px-2 py-1">
                 <Svg.Home fill={'white'} width={16} />
