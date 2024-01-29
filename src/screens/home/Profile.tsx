@@ -9,6 +9,7 @@ import {
 } from '../../components';
 import FastImage from 'react-native-fast-image';
 import {Svg, Navigation} from '../../constants';
+import Share from 'react-native-share';
 
 type Props = {};
 
@@ -24,6 +25,18 @@ const Profile = ({navigation}: any) => {
       ),
     });
   }, []);
+
+  const handleShare = async () => {
+    try {
+      const shareResponse = await Share.open({
+        title: 'weMeet',
+        message: 'Checkout weMeet chat',
+        url: 'https://wemeet.page.link',
+      });
+    } catch (error) {
+      console.log('error with sharing app', error);
+    }
+  };
 
   return (
     <Layout>
@@ -90,14 +103,14 @@ const Profile = ({navigation}: any) => {
           />
           <View className="my-2" />
           <ProfileItem
-            title="Share app"
+            title="Share with friends"
             icon={
               <View className="rounded bg-primary px-2 py-1">
                 <Svg.Share fill={'white'} width={16} />
               </View>
             }
             showCaret={false}
-            handlePress={() => {}}
+            handlePress={handleShare}
           />
           <View className="my-2" />
           <ProfileItem
