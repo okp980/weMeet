@@ -6,17 +6,20 @@ import {Svg} from '../../constants';
 type Props = {
   icon: ReactElement;
   title: string;
-  to: string;
+  showCaret?: boolean;
+  handlePress: () => void;
 };
 
-const ProfileItem = ({icon, title, to}: Props) => {
+const ProfileItem = ({icon, title, handlePress, showCaret = true}: Props) => {
   return (
-    <TouchableOpacity className="flex-row gap-4  items-center">
-      <View className="rounded bg-primary px-1">{icon}</View>
+    <TouchableOpacity
+      className="flex-row gap-4  items-center"
+      onPress={() => handlePress}>
+      {icon}
       <View className="flex-1">
         <CustomText as="regular">{title}</CustomText>
       </View>
-      <Svg.RightCaret />
+      {showCaret && <Svg.RightCaret />}
     </TouchableOpacity>
   );
 };

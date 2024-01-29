@@ -149,7 +149,7 @@ const Profile = ({navigation}: any) => {
             <TouchableOpacity
               className="h-16 w-16 rounded-full items-center justify-center"
               style={styles.shadow}>
-              <Svg.Star height={30} />
+              <Svg.Star height={30} fill={'#8A2387'} />
             </TouchableOpacity>
           </View>
         </View>

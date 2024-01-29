@@ -1,5 +1,5 @@
 import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   CustomText,
   Layout,
@@ -12,7 +12,18 @@ import {Svg, Navigation} from '../../constants';
 
 type Props = {};
 
-const Profile = (props: Props) => {
+const Profile = ({navigation}: any) => {
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity className="mr-4">
+          <CustomText as="regular" color="#E94057" className="font-bold">
+            Sign Out
+          </CustomText>
+        </TouchableOpacity>
+      ),
+    });
+  }, []);
   return (
     <Layout>
       <View className="flex-row items-center gap-4 mb-8">
@@ -36,14 +47,64 @@ const Profile = (props: Props) => {
           </CustomText>
         </View>
       </View>
-      <ScrollView className="flex-1">
+      <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
         <ProfileItem
           title="Edit Profile"
-          icon={<Svg.Person fill={'white'} width={16} />}
-          to={Navigation.EDIT_PROFILE_SCREEN}
+          icon={
+            <View className="rounded bg-primary px-2 py-1">
+              <Svg.Person fill={'white'} width={16} />
+            </View>
+          }
+          handlePress={() => {}}
         />
         <ThemeToggle />
         <NotificationToggle />
+        <View className="mt-4 border-t border-b py-4 border-gray-300">
+          <ProfileItem
+            title="Terms of service"
+            icon={
+              <View className="rounded bg-primary px-2 py-1">
+                <Svg.Home fill={'white'} width={16} />
+              </View>
+            }
+            handlePress={() => {}}
+          />
+          <View className="my-2" />
+          <ProfileItem
+            title="Privacy policy"
+            icon={
+              <View className="rounded bg-primary px-2 py-1">
+                <Svg.Info fill={'white'} width={18} />
+              </View>
+            }
+            handlePress={() => {}}
+          />
+          <View className="my-2" />
+          <ProfileItem
+            title="Share app"
+            icon={
+              <View className="rounded bg-primary px-2 py-1">
+                <Svg.Share fill={'white'} width={16} />
+              </View>
+            }
+            showCaret={false}
+            handlePress={() => {}}
+          />
+          <View className="my-2" />
+          <ProfileItem
+            title="Rate app"
+            icon={
+              <View className="rounded bg-primary px-2 ">
+                <Svg.Star fill={'white'} width={16} />
+              </View>
+            }
+            showCaret={false}
+            handlePress={() => {}}
+          />
+        </View>
+        <CustomText as="regular" className="text-center my-4">
+          Version 0.1.1
+        </CustomText>
       </ScrollView>
     </Layout>
   );

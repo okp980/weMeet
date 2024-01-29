@@ -96,7 +96,7 @@ const Home = ({navigation}: any) => {
         <TouchableOpacity
           className="h-20 w-20 rounded-full items-center justify-center"
           style={styles.shadow}>
-          <Svg.Star />
+          <Svg.Star fill={'#8A2387'} />
         </TouchableOpacity>
       </View>
       <Filter ref={bottomRef} />
