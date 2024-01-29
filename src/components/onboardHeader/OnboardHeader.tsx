@@ -5,7 +5,7 @@ import Button from '../button/Button';
 import Svg from '../../constants/svg';
 import clsx from 'clsx';
 import {Navigation} from '../../constants';
-import {useAuth} from '../../hooks';
+import {useAuth, useCustomTheme} from '../../hooks';
 
 type Props = {
   next: keyof typeof Navigation;
@@ -13,9 +13,9 @@ type Props = {
 
 export const OnboardHeaderWithOutGoBack = ({next}: Props) => {
   const navigation = useNavigation();
+
   return (
-    <View
-      className={clsx('h-14 bg-white  px-4 flex-row items-center justify-end')}>
+    <View className={clsx('h-14 px-4 flex-row items-center justify-end')}>
       <TouchableOpacity
         onPress={() =>
           next === Navigation.HOME_SCREEN
@@ -33,6 +33,9 @@ export const OnboardHeaderWithOutGoBack = ({next}: Props) => {
 };
 
 const OnboardHeader = ({next}: Props) => {
+  const {
+    color: {colors},
+  } = useCustomTheme();
   const navigation = useNavigation();
   const {compeleteProfileOnboarding} = useAuth();
   const onNavigate = (next: string) => {
@@ -48,14 +51,11 @@ const OnboardHeader = ({next}: Props) => {
     }
   };
   return (
-    <View
-      className={clsx(
-        'h-16 bg-white px-4 flex-row items-center justify-between',
-      )}>
+    <View className={clsx('h-16 px-4 flex-row items-center justify-between')}>
       <TouchableOpacity
         className="border border-gray-200 rounded-2xl h-12 w-14 justify-center items-center"
         onPress={navigation.goBack}>
-        <Svg.LeftCaret />
+        <Svg.LeftCaret fill={colors.primary} />
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => onNavigate(next)}>

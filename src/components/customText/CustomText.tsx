@@ -1,7 +1,8 @@
-import {View, Text, TextProps} from 'react-native';
+import {Text, TextProps} from 'react-native';
 import React from 'react';
 import clsx from 'clsx';
 import {styled} from 'nativewind';
+import {useCustomTheme} from '../../hooks';
 
 type HeaderAs = 'h1' | 'h2' | 'h3';
 type Body = 'big' | 'small' | 'medium' | 'regular' | 'tiny';
@@ -25,7 +26,10 @@ const body = {
   tiny: 'font-regular text-[10px]',
 };
 
-const CustomText = ({style, as, color = 'black', children}: Props) => {
+const CustomText = ({style, as, color, children}: Props) => {
+  const {
+    color: {colors},
+  } = useCustomTheme();
   const customClass = {
     [heading.h1]: as === 'h1',
     [heading.h2]: as === 'h2',
@@ -37,7 +41,9 @@ const CustomText = ({style, as, color = 'black', children}: Props) => {
     [body.tiny]: as === 'tiny',
   };
   return (
-    <Text style={[style, {color}]} className={clsx(customClass)}>
+    <Text
+      style={[style, {color: color ?? colors.text}]}
+      className={clsx(customClass)}>
       {children}
     </Text>
   );

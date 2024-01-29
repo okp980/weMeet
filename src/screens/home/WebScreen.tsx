@@ -5,8 +5,7 @@ import {WebView} from 'react-native-webview';
 
 type Props = {};
 
-const WebScreen = ({navigation, route}: any) => {
-  const [loading, setLoading] = useState(true);
+const WebScreen = ({route}: any) => {
   const {params} = route;
 
   return (

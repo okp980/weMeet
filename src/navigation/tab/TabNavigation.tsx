@@ -12,7 +12,7 @@ const TabNavigation = () => {
     <Tab.Navigator
       initialRouteName={Navigation.HOME_SCREEN}
       screenOptions={({route}) => ({
-        tabBarStyle: {height: 70, backgroundColor: '#F3F3F3'},
+        tabBarStyle: {height: 70},
         tabBarShowLabel: false,
         tabBarIcon: ({focused, color, size}) => {
           let icon;
@@ -59,7 +59,6 @@ const TabNavigation = () => {
         headerTitleAlign: 'left',
         headerShadowVisible: false,
         headerStyle: {
-          backgroundColor: 'white',
           height: 80,
         },
         headerTitleStyle: {

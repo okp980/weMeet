@@ -50,12 +50,12 @@ const HomeNavigation = () => {
         options={({navigation}) => ({
           headerShown: true,
           headerShadowVisible: false,
-          headerTintColor: '#E94057',
+          // headerTintColor: '#E94057',
           headerBackVisible: false,
           headerTitleAlign: 'center',
-          headerLeft: () => (
+          headerLeft: ({tintColor}) => (
             <TouchableOpacity onPress={navigation.goBack}>
-              <Svg.LeftCaret fill="#E94057" width={20} height={18} />
+              <Svg.LeftCaret fill={tintColor} width={20} height={18} />
             </TouchableOpacity>
           ),
           headerBackTitleVisible: false,

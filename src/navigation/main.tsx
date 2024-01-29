@@ -9,7 +9,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import messaging from '@react-native-firebase/messaging';
 
 import AuthNavigation from './auth/Auth';
-import {useAuth, useNotification} from '../hooks';
+import {useAuth, useCustomTheme, useNotification} from '../hooks';
 import {Navigation, Tag} from '../constants';
 import HomeNavigation from './home/HomeNavigation';
 import {
@@ -27,6 +27,7 @@ const Main = () => {
   const appState = useRef(AppState.currentState);
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
   const {addFcmToken} = useAuth();
+  const {color} = useCustomTheme();
 
   const navigationRef = useNavigationContainerRef<any>();
 
@@ -116,8 +117,8 @@ const Main = () => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <NavigationContainer ref={navigationRef}>
-        <StatusBar barStyle={'light-content'} />
+      <NavigationContainer ref={navigationRef} theme={color}>
+        <StatusBar barStyle={'default'} />
         <Stack.Navigator
           initialRouteName={initialRoute}
           screenOptions={{headerShown: false}}>

@@ -19,11 +19,13 @@ import {MMKV} from 'react-native-mmkv';
 import {api} from '../services/api';
 import auth from './auth';
 import notification from './notification';
+import theme from './theme';
 
 const reducers = combineReducers({
   [api.reducerPath]: api.reducer,
   auth,
   notification,
+  theme,
 });
 
 const storage = new MMKV();

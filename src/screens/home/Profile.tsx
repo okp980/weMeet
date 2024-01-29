@@ -20,7 +20,7 @@ const Profile = ({navigation}: any) => {
     navigation.setOptions({
       headerRight: () => (
         <TouchableOpacity className="mr-4">
-          <CustomText as="regular" color="#E94057" className="font-bold">
+          <CustomText as="regular" className="font-bold">
             Sign Out
           </CustomText>
         </TouchableOpacity>
@@ -88,7 +88,7 @@ const Profile = ({navigation}: any) => {
 
   return (
     <Layout>
-      <View className="flex-row items-center gap-4 mb-8">
+      <View className="flex-row items-center gap-4 mb-8 pt-2">
         <View className="relative w-24 h-24 rounded-full">
           <FastImage
             source={{
