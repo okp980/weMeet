@@ -43,6 +43,7 @@
     "react-native-screens": "^3.29.0",
     "react-native-svg": "^14.1.0",
     "react-native-toggle-element": "^2.0.1",
+    "react-native-webview": "^13.6.4",
     "react-redux": "^9.0.2",
     "redux-flipper": "^2.0.2",
     "redux-persist": "^6.0.0",

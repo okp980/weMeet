@@ -14,7 +14,7 @@ const ProfileItem = ({icon, title, handlePress, showCaret = true}: Props) => {
   return (
     <TouchableOpacity
       className="flex-row gap-4  items-center"
-      onPress={() => handlePress}>
+      onPress={handlePress}>
       {icon}
       <View className="flex-1">
         <CustomText as="regular">{title}</CustomText>

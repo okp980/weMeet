@@ -24,6 +24,7 @@ const Profile = ({navigation}: any) => {
       ),
     });
   }, []);
+
   return (
     <Layout>
       <View className="flex-row items-center gap-4 mb-8">
@@ -67,7 +68,11 @@ const Profile = ({navigation}: any) => {
                 <Svg.Home fill={'white'} width={16} />
               </View>
             }
-            handlePress={() => {}}
+            handlePress={() => {
+              navigation.navigate(Navigation.WEB_SCREEN, {
+                url: 'https://okp980.github.io/weMeet/terms_and_condition',
+              });
+            }}
           />
           <View className="my-2" />
           <ProfileItem
@@ -77,7 +82,11 @@ const Profile = ({navigation}: any) => {
                 <Svg.Info fill={'white'} width={18} />
               </View>
             }
-            handlePress={() => {}}
+            handlePress={() => {
+              navigation.navigate(Navigation.WEB_SCREEN, {
+                url: 'https://okp980.github.io/weMeet/policy',
+              });
+            }}
           />
           <View className="my-2" />
           <ProfileItem

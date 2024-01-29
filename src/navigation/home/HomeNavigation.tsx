@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
-import {GalleryModal, PhotoModal, ProfileModal} from '../../screens';
+import {GalleryModal, PhotoModal, ProfileModal, WebScreen} from '../../screens';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Navigation} from '../../constants';
+import {Navigation, Svg} from '../../constants';
 import ProfileOnboardingNavigation from '../profile-onboarding/ProfileOnboardingNavigation';
 import TabNavigation from '../tab/TabNavigation';
 import {useAuth} from '../../hooks';
 import {useGetProfileQuery} from '../../services/modules/auth';
-import {ActivityIndicator, View} from 'react-native';
+import {ActivityIndicator, TouchableOpacity, View} from 'react-native';
+import {CustomText} from '../../components';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,6 +43,24 @@ const HomeNavigation = () => {
       <Stack.Screen
         name={Navigation.TAB_NAVIGATION}
         component={TabNavigation}
+      />
+      <Stack.Screen
+        name={Navigation.WEB_SCREEN}
+        component={WebScreen}
+        options={({navigation}) => ({
+          headerShown: true,
+          headerShadowVisible: false,
+          headerTintColor: '#E94057',
+          headerBackVisible: false,
+          headerTitleAlign: 'center',
+          headerLeft: () => (
+            <TouchableOpacity onPress={navigation.goBack}>
+              <Svg.LeftCaret fill="#E94057" width={20} height={18} />
+            </TouchableOpacity>
+          ),
+          headerBackTitleVisible: false,
+          headerTitle: () => <CustomText as="h2">weMeet</CustomText>,
+        })}
       />
       <Stack.Group screenOptions={{presentation: 'fullScreenModal'}}>
         <Stack.Screen

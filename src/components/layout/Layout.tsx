@@ -8,7 +8,7 @@ type Props = {
 
 const Layout = ({style, children, ...props}: Props) => {
   return (
-    <View style={style} className="flex-1 p-5 bg-white" {...props}>
+    <View style={style} className="flex-1 px-5  bg-white" {...props}>
       {children}
     </View>
   );
