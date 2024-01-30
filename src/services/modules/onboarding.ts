@@ -34,22 +34,9 @@ export const onboardingApi = api.injectEndpoints({
         body,
       }),
     }),
-    getNofications: build.mutation<OnboardingResponse, GetNotificationDataBody>(
-      {
-        query: body => ({
-          url: '/onboarding/notifactions',
-          method: 'POST',
-          body,
-        }),
-      },
-    ),
   }),
   overrideExisting: false,
 });
 
-export const {
-  useBioDataMutation,
-  useGenderMutation,
-  usePassionMutation,
-  useGetNoficationsMutation,
-} = onboardingApi;
+export const {useBioDataMutation, useGenderMutation, usePassionMutation} =
+  onboardingApi;

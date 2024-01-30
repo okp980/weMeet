@@ -7,5 +7,3 @@ export interface BioDataBody
 
 export interface GenderDataBody extends Pick<Profile, 'gender'> {}
 export interface PassionDataBody extends Pick<Profile, 'passion'> {}
-export interface GetNotificationDataBody
-  extends Pick<Profile, 'getNotifications'> {}

@@ -1,14 +1,20 @@
 import {View, Text} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Toggle from 'react-native-toggle-element';
 
 import CustomText from '../customText/CustomText';
 import {Svg} from '../../constants';
+import {
+  useGetNotificationQuery,
+  useUpdateNoficationMutation,
+} from '../../services/modules/user';
 
 type Props = {};
 
 const NotificationToggle = (props: Props) => {
-  const [toggle, setToggle] = useState<boolean | undefined>(true);
+  const {data} = useGetNotificationQuery();
+  const [update] = useUpdateNoficationMutation();
+
   return (
     <View className="mt-4 flex-row items-center ">
       <View className="rounded bg-primary py-1 px-2">
@@ -19,8 +25,8 @@ const NotificationToggle = (props: Props) => {
       </View>
       <View>
         <Toggle
-          value={toggle}
-          onPress={val => setToggle(val)}
+          value={data?.getNotifications}
+          onPress={val => update({getNotifications: val as boolean})}
           trackBar={{
             width: 80,
             height: 35,

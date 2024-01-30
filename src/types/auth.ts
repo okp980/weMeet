@@ -46,7 +46,7 @@ export interface Profile {
   email: string;
   firstName: string;
   gender: string;
-  getNotifications: string;
+  getNotifications: boolean;
   id: number;
   image: string;
   lastName: string;
