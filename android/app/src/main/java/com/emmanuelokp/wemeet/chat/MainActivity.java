@@ -1,4 +1,4 @@
-package com.wemeet;
+package com.emmanuelokp.wemeet.chat;
 
 import android.os.Bundle;
 
@@ -15,7 +15,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "weMeet";
+    return "WeMeet Chat";
   }
 
    @Override

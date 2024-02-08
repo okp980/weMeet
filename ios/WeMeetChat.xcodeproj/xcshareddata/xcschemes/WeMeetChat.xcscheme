@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "weMeet.app"
-               BlueprintName = "weMeet"
-               ReferencedContainer = "container:weMeet.xcodeproj">
+               BuildableName = "WeMeetChat.app"
+               BlueprintName = "WeMeetChat"
+               ReferencedContainer = "container:WeMeetChat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "weMeetTests.xctest"
-               BlueprintName = "weMeetTests"
-               ReferencedContainer = "container:weMeet.xcodeproj">
+               BuildableName = "WeMeetChatTests.xctest"
+               BlueprintName = "WeMeetChatTests"
+               ReferencedContainer = "container:WeMeetChat.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "weMeet.app"
-            BlueprintName = "weMeet"
-            ReferencedContainer = "container:weMeet.xcodeproj">
+            BuildableName = "WeMeetChat.app"
+            BlueprintName = "WeMeetChat"
+            ReferencedContainer = "container:WeMeetChat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "weMeet.app"
-            BlueprintName = "weMeet"
-            ReferencedContainer = "container:weMeet.xcodeproj">
+            BuildableName = "WeMeetChat.app"
+            BlueprintName = "WeMeetChat"
+            ReferencedContainer = "container:WeMeetChat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

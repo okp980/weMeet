@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* weMeetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* weMeetTests.m */; };
+		00E356F31AD99517003FC87E /* WeMeetChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* WeMeetChatTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -29,36 +29,36 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = weMeet;
+			remoteInfo = "WeMeetChat";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* weMeetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weMeetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* WeMeetChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WeMeetChatTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* weMeetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = weMeetTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* weMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = weMeet/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = weMeet/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = weMeet/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = weMeet/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = weMeet/main.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* WeMeetChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WeMeetChatTests.m"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* WeMeetChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WeMeetChat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "WeMeetChat/AppDelegate.h"; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = "WeMeetChat/AppDelegate.mm"; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "WeMeetChat/Images.xcassets"; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "WeMeetChat/Info.plist"; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "WeMeetChat/main.m"; sourceTree = "<group>"; };
 		14152BF20D344D479B0F6776 /* NotoSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Medium.ttf"; path = "../src/assets/fonts/NotoSans-Medium.ttf"; sourceTree = "<group>"; };
 		2000F12B2B6549D7006CA54F /* hermes.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = hermes.xcframework; path = "Pods/hermes-engine/destroot/Library/Frameworks/universal/hermes.xcframework"; sourceTree = "<group>"; };
 		2000F12D2B654A0C006CA54F /* reacthermes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = reacthermes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2032B28B2B3D24120046DA98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		20C10C702B4383ED0022FFC8 /* weMeet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = weMeet.entitlements; path = weMeet/weMeet.entitlements; sourceTree = "<group>"; };
+		20C10C702B4383ED0022FFC8 /* WeMeetChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = WeMeetChat.entitlements; path = WeMeetChat/WeMeetChat.entitlements; sourceTree = "<group>"; };
 		20C591C5CF2C4DAA40CC9D0B /* Pods_weMeet_weMeetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weMeet_weMeetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		21FE51B6084C9126EBE4B0B4 /* Pods-weMeet-weMeetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weMeet-weMeetTests.release.xcconfig"; path = "Target Support Files/Pods-weMeet-weMeetTests/Pods-weMeet-weMeetTests.release.xcconfig"; sourceTree = "<group>"; };
+		21FE51B6084C9126EBE4B0B4 /* Pods-WeMeetChat-WeMeetChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeMeetChat-WeMeetChatTests.release.xcconfig"; path = "Target Support Files/Pods-WeMeetChat-WeMeetChatTests/Pods-WeMeetChat-WeMeetChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		2E6EBAFB95AD4DB59BEFBC73 /* NotoSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Light.ttf"; path = "../src/assets/fonts/NotoSans-Light.ttf"; sourceTree = "<group>"; };
 		34BA1DA86E2743982FE0D653 /* Pods_weMeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weMeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7DEE09239A80501933876707 /* Pods-weMeet-weMeetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weMeet-weMeetTests.debug.xcconfig"; path = "Target Support Files/Pods-weMeet-weMeetTests/Pods-weMeet-weMeetTests.debug.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = weMeet/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7DEE09239A80501933876707 /* Pods-WeMeetChat-WeMeetChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeMeetChat-WeMeetChatTests.debug.xcconfig"; path = "Target Support Files/Pods-WeMeetChat-WeMeetChatTests/Pods-WeMeetChat-WeMeetChatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "WeMeetChat/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		83BFD42E88E047658746950C /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Regular.ttf"; path = "../src/assets/fonts/NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		95E08E28D4A34C7B9057C270 /* NotoSans-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Black.ttf"; path = "../src/assets/fonts/NotoSans-Black.ttf"; sourceTree = "<group>"; };
-		971E1D5195B19696A39C3059 /* Pods-weMeet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weMeet.debug.xcconfig"; path = "Target Support Files/Pods-weMeet/Pods-weMeet.debug.xcconfig"; sourceTree = "<group>"; };
+		971E1D5195B19696A39C3059 /* Pods-WeMeetChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeMeetChat.debug.xcconfig"; path = "Target Support Files/Pods-WeMeetChat/Pods-WeMeetChat.debug.xcconfig"; sourceTree = "<group>"; };
 		A3EBA88A63C7425C98C7B4BF /* NotoSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-SemiBold.ttf"; path = "../src/assets/fonts/NotoSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		A468E42B1387CF56958F673D /* Pods-weMeet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weMeet.release.xcconfig"; path = "Target Support Files/Pods-weMeet/Pods-weMeet.release.xcconfig"; sourceTree = "<group>"; };
+		A468E42B1387CF56958F673D /* Pods-WeMeetChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeMeetChat.release.xcconfig"; path = "Target Support Files/Pods-WeMeetChat/Pods-WeMeetChat.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F1ADCFBE3E7C452785791647 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Bold.ttf"; path = "../src/assets/fonts/NotoSans-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,13 +83,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* weMeetTests */ = {
+		00E356EF1AD99517003FC87E /* WeMeetChatTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* weMeetTests.m */,
+				00E356F21AD99517003FC87E /* WeMeetChatTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = weMeetTests;
+			path = "WeMeetChatTests";
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -100,10 +100,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* weMeet */ = {
+		13B07FAE1A68108700A75B9A /* WeMeetChat */ = {
 			isa = PBXGroup;
 			children = (
-				20C10C702B4383ED0022FFC8 /* weMeet.entitlements */,
+				20C10C702B4383ED0022FFC8 /* WeMeetChat.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -111,7 +111,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = weMeet;
+			name = "WeMeetChat";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -150,9 +150,9 @@
 			isa = PBXGroup;
 			children = (
 				2032B28B2B3D24120046DA98 /* GoogleService-Info.plist */,
-				13B07FAE1A68108700A75B9A /* weMeet */,
+				13B07FAE1A68108700A75B9A /* WeMeetChat */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* weMeetTests */,
+				00E356EF1AD99517003FC87E /* WeMeetChatTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -166,8 +166,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* weMeet.app */,
-				00E356EE1AD99517003FC87E /* weMeetTests.xctest */,
+				13B07F961A680F5B00A75B9A /* WeMeetChat.app */,
+				00E356EE1AD99517003FC87E /* WeMeetChatTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,10 +175,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				971E1D5195B19696A39C3059 /* Pods-weMeet.debug.xcconfig */,
-				A468E42B1387CF56958F673D /* Pods-weMeet.release.xcconfig */,
-				7DEE09239A80501933876707 /* Pods-weMeet-weMeetTests.debug.xcconfig */,
-				21FE51B6084C9126EBE4B0B4 /* Pods-weMeet-weMeetTests.release.xcconfig */,
+				971E1D5195B19696A39C3059 /* Pods-WeMeetChat.debug.xcconfig */,
+				A468E42B1387CF56958F673D /* Pods-WeMeetChat.release.xcconfig */,
+				7DEE09239A80501933876707 /* Pods-WeMeetChat-WeMeetChatTests.debug.xcconfig */,
+				21FE51B6084C9126EBE4B0B4 /* Pods-WeMeetChat-WeMeetChatTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -186,9 +186,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* weMeetTests */ = {
+		00E356ED1AD99517003FC87E /* WeMeetChatTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "weMeetTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "WeMeetChatTests" */;
 			buildPhases = (
 				CB0B223F4CC3AF5C11719080 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -202,14 +202,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = weMeetTests;
-			productName = weMeetTests;
-			productReference = 00E356EE1AD99517003FC87E /* weMeetTests.xctest */;
+			name = WeMeetChatTests;
+			productName = WeMeetChatTests;
+			productReference = 00E356EE1AD99517003FC87E /* WeMeetChatTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* weMeet */ = {
+		13B07F861A680F5B00A75B9A /* WeMeetChat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "weMeet" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "WeMeetChat" */;
 			buildPhases = (
 				753CE7CDCCD086754296B263 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -225,9 +225,9 @@
 			);
 			dependencies = (
 			);
-			name = weMeet;
-			productName = weMeet;
-			productReference = 13B07F961A680F5B00A75B9A /* weMeet.app */;
+			name = "WeMeetChat";
+			productName = "WeMeetChat";
+			productReference = 13B07F961A680F5B00A75B9A /* WeMeetChat.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -247,7 +247,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "weMeet" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "WeMeetChat" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -260,8 +260,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* weMeet */,
-				00E356ED1AD99517003FC87E /* weMeetTests */,
+				13B07F861A680F5B00A75B9A /* WeMeetChat */,
+				00E356ED1AD99517003FC87E /* WeMeetChatTests */,
 			);
 		};
 /* End PBXProject section */
@@ -315,15 +315,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-weMeet/Pods-weMeet-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeMeetChat/Pods-WeMeetChat-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-weMeet/Pods-weMeet-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeMeetChat/Pods-WeMeetChat-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-weMeet/Pods-weMeet-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeMeetChat/Pods-WeMeetChat-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		753CE7CDCCD086754296B263 /* [CP] Check Pods Manifest.lock */ = {
@@ -341,7 +341,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-weMeet-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-WeMeetChat-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -367,15 +367,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-weMeet-weMeetTests/Pods-weMeet-weMeetTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeMeetChat-WeMeetChatTests/Pods-WeMeetChat-WeMeetChatTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-weMeet-weMeetTests/Pods-weMeet-weMeetTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeMeetChat-WeMeetChatTests/Pods-WeMeetChat-WeMeetChatTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-weMeet-weMeetTests/Pods-weMeet-weMeetTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeMeetChat-WeMeetChatTests/Pods-WeMeetChat-WeMeetChatTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		789DFDC73FAF99FA263D1615 /* [CP] Copy Pods Resources */ = {
@@ -384,15 +384,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-weMeet-weMeetTests/Pods-weMeet-weMeetTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeMeetChat-WeMeetChatTests/Pods-WeMeetChat-WeMeetChatTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-weMeet-weMeetTests/Pods-weMeet-weMeetTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeMeetChat-WeMeetChatTests/Pods-WeMeetChat-WeMeetChatTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-weMeet-weMeetTests/Pods-weMeet-weMeetTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeMeetChat-WeMeetChatTests/Pods-WeMeetChat-WeMeetChatTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CB0B223F4CC3AF5C11719080 /* [CP] Check Pods Manifest.lock */ = {
@@ -410,7 +410,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-weMeet-weMeetTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-WeMeetChat-WeMeetChatTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -423,15 +423,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-weMeet/Pods-weMeet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeMeetChat/Pods-WeMeetChat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-weMeet/Pods-weMeet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeMeetChat/Pods-WeMeetChat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-weMeet/Pods-weMeet-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeMeetChat/Pods-WeMeetChat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -460,7 +460,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* weMeetTests.m in Sources */,
+				00E356F31AD99517003FC87E /* WeMeetChatTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,7 +478,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* weMeet */;
+			target = 13B07F861A680F5B00A75B9A /* WeMeetChat */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -486,14 +486,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DEE09239A80501933876707 /* Pods-weMeet-weMeetTests.debug.xcconfig */;
+			baseConfigurationReference = 7DEE09239A80501933876707 /* Pods-WeMeetChat-WeMeetChatTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = weMeetTests/Info.plist;
+				INFOPLIST_FILE = "WeMeetChatTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -505,19 +505,19 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.emmanuelokp.wemeet.chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/weMeet.app/weMeet";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeMeetChat.app/WeMeetChat";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21FE51B6084C9126EBE4B0B4 /* Pods-weMeet-weMeetTests.release.xcconfig */;
+			baseConfigurationReference = 21FE51B6084C9126EBE4B0B4 /* Pods-WeMeetChat-WeMeetChatTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = weMeetTests/Info.plist;
+				INFOPLIST_FILE = "WeMeetChatTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -529,22 +529,23 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.emmanuelokp.wemeet.chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/weMeet.app/weMeet";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeMeetChat.app/WeMeetChat";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 971E1D5195B19696A39C3059 /* Pods-weMeet.debug.xcconfig */;
+			baseConfigurationReference = 971E1D5195B19696A39C3059 /* Pods-WeMeetChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = weMeet/weMeet.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WeMeetChat/WeMeetChat.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = weMeet/Info.plist;
+				INFOPLIST_FILE = "WeMeetChat/Info.plist";
+             INFOPLIST_KEY_CFBundleDisplayName = "WeMeet Chat";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -555,8 +556,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = weMeet;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.emmanuelokp.wemeet.chat";
+				PRODUCT_NAME = "WeMeetChat";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -565,13 +566,14 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A468E42B1387CF56958F673D /* Pods-weMeet.release.xcconfig */;
+			baseConfigurationReference = A468E42B1387CF56958F673D /* Pods-WeMeetChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = weMeet/weMeet.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WeMeetChat/WeMeetChat.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = weMeet/Info.plist;
+				INFOPLIST_FILE = "WeMeetChat/Info.plist";
+             INFOPLIST_KEY_CFBundleDisplayName = "WeMeet Chat";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -582,8 +584,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = weMeet;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.emmanuelokp.wemeet.chat";
+				PRODUCT_NAME = "WeMeetChat";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -760,7 +762,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "weMeetTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "WeMeetChatTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -769,7 +771,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "weMeet" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "WeMeetChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -778,7 +780,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "weMeet" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "WeMeetChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

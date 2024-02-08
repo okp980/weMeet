@@ -74,9 +74,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.wemeet"
+    namespace "com.emmanuelokp.wemeet.chat"
     defaultConfig {
-        applicationId "com.wemeet"
+        applicationId "com.emmanuelokp.wemeet.chat"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

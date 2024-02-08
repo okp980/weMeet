@@ -1,4 +1,4 @@
-package com.wemeet;
+package com.emmanuelokp.wemeet.chat;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
