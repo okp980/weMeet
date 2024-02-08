@@ -21,7 +21,7 @@ const CustomInput = ({
     <View className={clsx('mb-5', contentContainerClassName)}>
       <View
         className={clsx(
-          'rounded-2xl border border-gray-400 p-3 relative ',
+          'rounded-2xl border border-gray-400  px-3 py-5 relative ',
           inputClassName,
         )}>
         {label && (

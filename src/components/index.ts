@@ -7,8 +7,10 @@ export {default as Form} from './form/Form';
 export {default as Birthday} from './modals/Birthday';
 export {default as Filter} from './modals/Filter';
 export {default as Message} from './modals/Message';
+export {default as EditProfile} from './modals/EditProfile';
 export {default as CustomTabBar} from './customTabBar/CustomTabBar';
 export {default as CustomText} from './customText/CustomText';
+export {default as PassionList} from './passionList/PassionList';
 
 export {default as CustomSlider} from './customSlider/CustomSlider';
 export {default as CustomRangeSlider} from './customRangeSlider/CustomRangeSlider';

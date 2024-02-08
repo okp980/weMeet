@@ -35,6 +35,7 @@ import Send from '../assets/svgs/send.svg';
 import Close from '../assets/svgs/close.svg';
 import Info from '../assets/svgs/info.svg';
 import Share from '../assets/svgs/share.svg';
+import Edit from '../assets/svgs/edit.svg';
 export default {
   Google,
   Facebook,
@@ -73,4 +74,5 @@ export default {
   Close,
   Info,
   Share,
+  Edit,
 };

@@ -5,15 +5,15 @@ import Toggle from 'react-native-toggle-element';
 import CustomText from '../customText/CustomText';
 import {Svg} from '../../constants';
 import {
-  useGetNotificationQuery,
-  useUpdateNoficationMutation,
-} from '../../services/modules/user';
+  useGetProfileQuery,
+  useUpdateProfileMutation,
+} from '../../services/modules/auth';
 
 type Props = {};
 
 const NotificationToggle = (props: Props) => {
-  const {data} = useGetNotificationQuery();
-  const [update] = useUpdateNoficationMutation();
+  const {data, error} = useGetProfileQuery();
+  const [update] = useUpdateProfileMutation();
 
   return (
     <View className="mt-4 flex-row items-center ">

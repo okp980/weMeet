@@ -46,5 +46,10 @@ export const api = createApi({
     {}
   >,
   endpoints: () => ({}),
-  tagTypes: [Tag.MEET_TAG, Tag.MEET_REQUEST_TAG, Tag.NOTIFICATION_TAG],
+  tagTypes: [
+    Tag.MEET_TAG,
+    Tag.MEET_REQUEST_TAG,
+    Tag.NOTIFICATION_TAG,
+    Tag.PROFILE_TAG,
+  ],
 });

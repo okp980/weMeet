@@ -10,7 +10,7 @@ import {Button, CustomInput, Form, Layout} from '../../components';
 import {Controller, useForm} from 'react-hook-form';
 import {Navigation, Svg} from '../../constants';
 import FastImage from 'react-native-fast-image';
-import {checkPermission} from '../../helpers/utils';
+import {checkPermission, selectImage} from '../../helpers/utils';
 import {launchImageLibrary} from 'react-native-image-picker';
 import {showMessage} from 'react-native-flash-message';
 import {useGetProfileQuery} from '../../services/modules/auth';
@@ -18,9 +18,8 @@ import {useBioDataMutation} from '../../services/modules/onboarding';
 import {AWS_S3_LINK} from '@env';
 
 type FormValues = {
-  firstName: string;
-  lastName: string;
-  dateOfBirth: string;
+  fullName: string;
+  age: number;
 };
 
 const BioData = ({navigation}: any) => {
@@ -35,20 +34,18 @@ const BioData = ({navigation}: any) => {
     formState: {errors},
   } = useForm<FormValues>({
     defaultValues: {
-      firstName: '',
-      lastName: '',
-      dateOfBirth: '',
+      fullName: '',
+      age: 18,
     },
   });
 
   useEffect(() => {
     if (profile) {
       reset({
-        firstName: profile.profile.firstName || '',
-        lastName: profile.profile.lastName || '',
-        dateOfBirth: profile.profile.dateOfBirth || '',
+        fullName: profile.name || '',
+        age: profile.age || 18,
       });
-      setSelectedImageURI(`${AWS_S3_LINK}/${profile.profile.image}`);
+      setSelectedImageURI(`${AWS_S3_LINK}/${profile.image}`);
     }
     if (error) {
       showMessage({
@@ -61,36 +58,9 @@ const BioData = ({navigation}: any) => {
     }
   }, [isSuccess, profile, isError, error]);
 
-  const selectImage = async () => {
-    try {
-      // await checkPermission('camera');
-      const response = await launchImageLibrary({mediaType: 'photo'});
-      if (response.errorMessage) {
-        console.log(response.errorMessage);
-      }
-      if (response.assets) {
-        // @ts-ignore
-        if (response.assets[0].fileSize > 1024 * 1024 * 5) {
-          showMessage({
-            message: 'Image size cannot exceed 10MB',
-            type: 'danger',
-          });
-        }
-
-        if (Platform.OS === 'android') {
-          // @ts-ignore
-          setSelectedImageURI(response.assets[0].uri);
-        } else {
-          // @ts-ignore
-          setSelectedImageURI(response.assets[0].uri.replace('file://', ''));
-        }
-      }
-    } catch (error: any) {
-      console.log(error);
-      if (typeof error === 'string') {
-        showMessage({message: error, type: 'danger'});
-      }
-    }
+  const handleSelectImage = async () => {
+    const uri = await selectImage();
+    setSelectedImageURI(uri as string);
   };
 
   const onSubmit = async (data: FormValues) => {
@@ -105,9 +75,8 @@ const BioData = ({navigation}: any) => {
         type: 'image/jpeg',
       });
     }
-    formData.append('firstName', data.firstName);
-    formData.append('lastName', data.lastName);
-    formData.append('dateOfBirth', data.dateOfBirth);
+    formData.append('name', data.fullName);
+    formData.append('age', data.age);
     try {
       await updateBioData(formData).unwrap();
       navigation.navigate(Navigation.GENDER_SCREEN);
@@ -132,13 +101,13 @@ const BioData = ({navigation}: any) => {
             source={{
               uri: selectedImageURI
                 ? selectedImageURI
-                : profile?.profile.image
-                ? `${AWS_S3_LINK}/${profile?.profile.image}`
+                : profile?.image
+                ? `${AWS_S3_LINK}/${profile?.image}`
                 : 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
             }}
             className="w-28 h-28 rounded-2xl"
           />
-          <TouchableOpacity onPress={selectImage}>
+          <TouchableOpacity onPress={handleSelectImage}>
             <View className="bg-primary h-9 w-9 rounded-full justify-center items-center border border-white absolute right-[-10px] bottom-[-10px]">
               <Svg.Camera />
             </View>
@@ -148,42 +117,29 @@ const BioData = ({navigation}: any) => {
         <View>
           <Controller
             control={control}
-            name="firstName"
+            name="fullName"
             render={({field: {onChange, onBlur, value}}) => (
               <CustomInput
-                label="First name"
+                label="Full name"
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
-                error={errors.firstName}
-                placeholder="John"
+                error={errors.fullName}
+                placeholder="John Doe"
               />
             )}
           />
+
           <Controller
             control={control}
-            name="lastName"
+            name="age"
             render={({field: {onChange, onBlur, value}}) => (
               <CustomInput
-                label="Last name"
+                label="Age"
                 onBlur={onBlur}
                 onChangeText={onChange}
-                value={value}
-                error={errors.lastName}
-                placeholder="Doe"
-              />
-            )}
-          />
-          <Controller
-            control={control}
-            name="dateOfBirth"
-            render={({field: {onChange, onBlur, value}}) => (
-              <CustomInput
-                label="Date Of Birth"
-                onBlur={onBlur}
-                onChangeText={onChange}
-                value={value}
-                error={errors.dateOfBirth}
+                value={value as unknown as string}
+                error={errors.age}
                 placeholder="23-01-1984"
               />
             )}

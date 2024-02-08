@@ -7,6 +7,8 @@ import {
   MeetRequestResponse,
   MeetResponse,
 } from '../types/meet';
+import {launchImageLibrary} from 'react-native-image-picker';
+import {showMessage} from 'react-native-flash-message';
 
 export const selectPermission = (type: string): any => {
   return Platform.select({
@@ -120,4 +122,35 @@ export const getMatchData = (data: MeetRequestResponse[]): MatchRequestData => {
       },
     ];
   }, []);
+};
+
+export const selectImage = async () => {
+  try {
+    // await checkPermission('camera');
+    const response = await launchImageLibrary({mediaType: 'photo'});
+    if (response.errorMessage) {
+      console.log(response.errorMessage);
+    }
+    if (response.assets) {
+      // @ts-ignore
+      if (response.assets[0].fileSize > 1024 * 1024 * 5) {
+        showMessage({
+          message: 'Image size cannot exceed 10MB',
+          type: 'danger',
+        });
+      }
+
+      if (Platform.OS === 'android') {
+        // @ts-ignore
+        return response.assets[0].uri;
+      }
+      // @ts-ignore
+      return response.assets[0].uri.replace('file://', '');
+    }
+  } catch (error: any) {
+    console.log(error);
+    if (typeof error === 'string') {
+      showMessage({message: error, type: 'danger'});
+    }
+  }
 };

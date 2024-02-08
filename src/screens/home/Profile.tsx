@@ -1,25 +1,48 @@
-import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
-import React, {useEffect} from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  ActivityIndicator,
+} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
 import Share from 'react-native-share';
 import InAppReview from 'react-native-in-app-review';
 
 import {
   CustomText,
+  EditProfile,
   Layout,
   NotificationToggle,
+  PassionList,
   ProfileItem,
   ThemeToggle,
 } from '../../components';
 import FastImage from 'react-native-fast-image';
 import {Svg, Navigation} from '../../constants';
+import {
+  useGetProfileQuery,
+  useUpdateProfilePicMutation,
+} from '../../services/modules/auth';
+import {BottomSheetModal} from '@gorhom/bottom-sheet';
+import {selectImage} from '../../helpers/utils';
+import {showMessage} from 'react-native-flash-message';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import {useAuth} from '../../hooks';
 
 type Props = {};
 
 const Profile = ({navigation}: any) => {
+  const {data: profile, isLoading} = useGetProfileQuery();
+  const [updatePic] = useUpdateProfilePicMutation();
+  const {removeAuth} = useAuth();
+  const [modalType, setModalType] = useState<'bio' | 'name' | null>(null);
+  const bottomRef = useRef<BottomSheetModal>(null);
+
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity className="mr-4">
+        <TouchableOpacity className="mr-4" onPress={signOut}>
           <CustomText as="regular" className="font-bold">
             Sign Out
           </CustomText>
@@ -27,6 +50,11 @@ const Profile = ({navigation}: any) => {
       ),
     });
   }, []);
+
+  const openEditProfileModal = (type: 'name' | 'bio') => {
+    setModalType(type);
+    bottomRef?.current?.present({type});
+  };
 
   const handleShare = async () => {
     try {
@@ -37,6 +65,22 @@ const Profile = ({navigation}: any) => {
       });
     } catch (error) {
       console.log('error with sharing app', error);
+    }
+  };
+
+  const handleSelectImage = async () => {
+    const uri = await selectImage();
+    if (!uri) return;
+    const formData = new FormData();
+    formData.append('image', {
+      uri: uri,
+      name: 'image.jpg',
+      type: 'image/jpeg',
+    });
+    try {
+      await updatePic(formData).unwrap();
+    } catch (error) {
+      showMessage({message: 'Failed to update profile pic', type: 'danger'});
     }
   };
 
@@ -86,6 +130,23 @@ const Profile = ({navigation}: any) => {
       });
   };
 
+  const signOut = async () => {
+    try {
+      await GoogleSignin.signOut();
+      removeAuth();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <View className="items-center justify-center">
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
+
   return (
     <Layout>
       <View className="flex-row items-center gap-4 mb-8 pt-2">
@@ -96,28 +157,34 @@ const Profile = ({navigation}: any) => {
             }}
             className="w-24 h-24 rounded-full"
           />
-          <TouchableOpacity>
+          <TouchableOpacity onPress={handleSelectImage}>
             <View className="bg-primary h-9 w-9 rounded-full justify-center items-center border border-white absolute right-[-5px] bottom-[-5px]">
               <Svg.Camera />
             </View>
           </TouchableOpacity>
         </View>
-        <View>
-          <CustomText as="h3">Emmanuel Okpunor</CustomText>
+        <View className="relative">
+          <CustomText as="h3">{profile?.name}</CustomText>
           <CustomText as="medium">
             <Text style={{fontWeight: '800'}}>22</Text> Meets
           </CustomText>
+          <TouchableOpacity
+            className="absolute right-[-30px] top-1 h-6 w-6 items-center justify-center rounded-full bg-primary"
+            onPress={() => openEditProfileModal('name')}>
+            <Svg.Edit fill={'white'} />
+          </TouchableOpacity>
         </View>
       </View>
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
         <ProfileItem
-          title="Edit Profile"
+          title="Edit Bio"
           icon={
             <View className="rounded bg-primary px-2 py-1">
               <Svg.Person fill={'white'} width={16} />
             </View>
           }
-          handlePress={() => {}}
+          showCaret={false}
+          handlePress={() => openEditProfileModal('bio')}
         />
         <ThemeToggle />
         <NotificationToggle />
@@ -176,6 +243,7 @@ const Profile = ({navigation}: any) => {
           Version 0.1.1
         </CustomText>
       </ScrollView>
+      <EditProfile ref={bottomRef} type={modalType as 'bio' | 'name'} />
     </Layout>
   );
 };

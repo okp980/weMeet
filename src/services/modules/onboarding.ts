@@ -1,7 +1,6 @@
 import {
   BioDataBody,
   GenderDataBody,
-  GetNotificationDataBody,
   OnboardingResponse,
   PassionDataBody,
 } from '../../types/onboarding';

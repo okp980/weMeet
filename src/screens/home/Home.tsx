@@ -8,17 +8,14 @@ import React, {useEffect, useRef} from 'react';
 import {CustomSwiper, Filter, Layout, SwipeCard} from '../../components';
 import Svg from '../../constants/svg';
 import {BottomSheetModal} from '@gorhom/bottom-sheet';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {useAuth} from '../../hooks';
 import {useUsersQuery} from '../../services/modules/user';
-import {dummyCards} from '../../helpers/data';
 import Swiper from 'react-native-deck-swiper';
 import {useRequestMeetMutation} from '../../services/modules/meet-request';
 
 const Home = ({navigation}: any) => {
   const bottomRef = useRef<BottomSheetModal>(null);
   const swiperRef = useRef<Swiper<any>>(null);
-  const {removeAuth} = useAuth();
+
   const {data: users, isLoading} = useUsersQuery({limit: 10, page: 1});
   const [sendRequest] = useRequestMeetMutation();
 
@@ -41,19 +38,6 @@ const Home = ({navigation}: any) => {
       ),
     });
   }, []);
-
-  const signOut = async () => {
-    try {
-      const signout = await GoogleSignin.signOut();
-      console.log(signout);
-      console.log('ssigned out');
-      removeAuth();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  // signOut();
 
   if (isLoading)
     return (

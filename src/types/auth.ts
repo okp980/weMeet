@@ -44,12 +44,12 @@ export interface Profile {
   createdAt: string;
   age: number;
   email: string;
-  firstName: string;
+  name: string;
+  bio: string;
   gender: string;
   getNotifications: boolean;
   id: number;
   image: string;
-  lastName: string;
   passion: string[];
   updatedAt: string;
   userId: number;

@@ -6,6 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "pod-install": "cd ios && pod install && cd ..",
+    "build:android-aab": "react-native build-android --mode=release",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest"

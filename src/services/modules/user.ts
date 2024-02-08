@@ -1,5 +1,5 @@
 import {Tag} from '../../constants';
-import {User} from '../../types';
+import {Profile, User} from '../../types';
 import {
   GetNotificationDataBody,
   IUsersQueryParams,
@@ -17,6 +17,7 @@ export const userApi = api.injectEndpoints({
         params,
       }),
     }),
+
     getNotification: build.query<NotificationResponse, void>({
       query: () => '/me/notification',
       providesTags: [Tag.NOTIFICATION_TAG],
@@ -27,34 +28,8 @@ export const userApi = api.injectEndpoints({
         method: 'PATCH',
         body,
       }),
-      async onQueryStarted(body, {dispatch, queryFulfilled}) {
-        const patchResult = dispatch(
-          api.util.updateQueryData(
-            'getNotification' as never,
-            undefined as never,
-            draft => {
-              Object.assign(draft, body);
-            },
-          ),
-        );
-        try {
-          await queryFulfilled;
-        } catch {
-          patchResult.undo();
-
-          /**
-           * Alternatively, on failure you can invalidate the corresponding cache tags
-           * to trigger a re-fetch:
-           * dispatch(api.util.invalidateTags(['Post']))
-           */
-        }
-      },
     }),
   }),
 });
 
-export const {
-  useUsersQuery,
-  useGetNotificationQuery,
-  useUpdateNoficationMutation,
-} = userApi;
+export const {useUsersQuery} = userApi;
