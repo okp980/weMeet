@@ -21,8 +21,7 @@ type Props = {
   endIcon?: ReactElement;
 } & TouchableOpacityProps;
 
-const btnRoot =
-  'rounded-2xl h-14 flex-row item-center justify-center gap-4 px-4';
+const btnRoot = 'rounded-2xl py-3 px-4';
 const textRoot = 'text-gray-800 text-base font-medium';
 
 const Button = ({
@@ -65,13 +64,16 @@ const Button = ({
   }
   return (
     <TouchableOpacity style={btnStyle} {...props} className={btnClass}>
-      {startIcon && startIcon}
-      <View className={clsx('flex-1')}>
+      <View
+        className={clsx('flex-row w-full item-center justify-center gap-4')}>
+        {startIcon && startIcon}
+        {/* <View className={clsx('flex-1')}> */}
         <Text style={textStyle} className={textClass}>
           {children}
         </Text>
+        {/* </View> */}
+        {endIcon && endIcon}
       </View>
-      {endIcon && endIcon}
     </TouchableOpacity>
   );
 };

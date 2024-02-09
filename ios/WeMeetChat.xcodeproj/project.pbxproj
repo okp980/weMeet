@@ -13,6 +13,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		15EA2D6D27F74A89BD025414 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14152BF20D344D479B0F6776 /* NotoSans-Medium.ttf */; };
 		2032B28C2B3D24130046DA98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2032B28B2B3D24120046DA98 /* GoogleService-Info.plist */; };
+		20ED29442B76DEC600FD349F /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20ED29432B76DEC600FD349F /* BootSplash.storyboard */; };
 		2C7830B374B94DAA9C8AA49C /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3EBA88A63C7425C98C7B4BF /* NotoSans-SemiBold.ttf */; };
 		3EC1744E631CB07F784E544C /* Pods_WeMeetChat_WeMeetChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C60D1E7D1869254BCB3704AE /* Pods_WeMeetChat_WeMeetChatTests.framework */; };
 		590A6FB485412C37187A32A7 /* Pods_WeMeetChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40976534DD2E6825EED562BC /* Pods_WeMeetChat.framework */; };
@@ -48,6 +49,7 @@
 		2000F12D2B654A0C006CA54F /* reacthermes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = reacthermes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2032B28B2B3D24120046DA98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		20C10C702B4383ED0022FFC8 /* WeMeetChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = WeMeetChat.entitlements; path = WeMeetChat/WeMeetChat.entitlements; sourceTree = "<group>"; };
+		20ED29432B76DEC600FD349F /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = WeMeetChat/BootSplash.storyboard; sourceTree = "<group>"; };
 		21FE51B6084C9126EBE4B0B4 /* Pods-WeMeetChat-WeMeetChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeMeetChat-WeMeetChatTests.release.xcconfig"; path = "Target Support Files/Pods-WeMeetChat-WeMeetChatTests/Pods-WeMeetChat-WeMeetChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		2E6EBAFB95AD4DB59BEFBC73 /* NotoSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Light.ttf"; path = "../src/assets/fonts/NotoSans-Light.ttf"; sourceTree = "<group>"; };
 		40976534DD2E6825EED562BC /* Pods_WeMeetChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeMeetChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,7 @@
 			children = (
 				20C10C702B4383ED0022FFC8 /* WeMeetChat.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				20ED29432B76DEC600FD349F /* BootSplash.storyboard */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -283,6 +286,7 @@
 				9FD28AD6039B4D20B31DB970 /* NotoSans-Black.ttf in Resources */,
 				DB941B58850C4C158D34A52C /* NotoSans-Bold.ttf in Resources */,
 				5A69EA78C3364EE29AA19442 /* NotoSans-Light.ttf in Resources */,
+				20ED29442B76DEC600FD349F /* BootSplash.storyboard in Resources */,
 				15EA2D6D27F74A89BD025414 /* NotoSans-Medium.ttf in Resources */,
 				2032B28C2B3D24130046DA98 /* GoogleService-Info.plist in Resources */,
 				AB80232A99EC4474B910DAC6 /* NotoSans-Regular.ttf in Resources */,

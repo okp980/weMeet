@@ -10,6 +10,7 @@ import {useSignInWithSocialMutation} from '../../services/modules/auth';
 import {SocialProvider} from '../../types/auth';
 import {useAuth} from '../../hooks';
 import {showMessage} from 'react-native-flash-message';
+import {Button, CustomText, Layout} from '../../components';
 
 const {Apple, Facebook, Google, Logo} = Svg;
 
@@ -47,19 +48,6 @@ const SignIn = () => {
     }
   };
 
-  const signOut = async () => {
-    try {
-      const signout = await GoogleSignin.signOut();
-      console.log(signout);
-      console.log('ssigned out');
-      removeAuth();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  // signOut();
-
   if (isLoading) {
     return (
       <View className="flex-1 items-center justify-center">
@@ -68,19 +56,29 @@ const SignIn = () => {
     );
   }
   return (
-    <View className="flex-1 px-10 items-center">
-      <View className="flex-[.7] justify-center items-center w-full">
+    <Layout>
+      <View className="flex-1 justify-center items-center w-full">
         <Logo width={108} height={100} />
       </View>
-      <View className="flex-[.3] w-full">
-        <View className="flex-row items-center justify-between">
-          <View className="h-[2px] w-1/3 bg-gray-200" />
-          <Text className="text-gray-800 text-base font-noto">
-            Sign up with
-          </Text>
-          <View className="h-[2px] w-1/3 bg-gray-200" />
+      <View className="flex-[.3] w-full ">
+        <View className="flex-row items-center justify-between mb-5">
+          <View className="h-[2px] w-1/3 bg-primary" />
+          <CustomText as="regular" color="#E94057">
+            Welcome
+          </CustomText>
+          <View className="h-[2px] w-1/3 bg-primary" />
         </View>
-        <View className="flex-row justify-around mt-8">
+        <View>
+          <Button
+            variant="primary"
+            startIcon={
+              <Google width={30} height={30} onPress={signIn} fill="white" />
+            }
+            textStyle={'text-white'}>
+            Sign in with Google
+          </Button>
+        </View>
+        {/* <View className="flex-row justify-around mt-8">
           <TouchableOpacity className="rounded-2xl border border-gray-200 p-4">
             <Facebook width={30} height={30} />
           </TouchableOpacity>
@@ -92,9 +90,9 @@ const SignIn = () => {
           <TouchableOpacity className="rounded-2xl border border-gray-200 p-4">
             <Apple width={30} height={30} />
           </TouchableOpacity>
-        </View>
+        </View> */}
       </View>
-    </View>
+    </Layout>
   );
 };
 

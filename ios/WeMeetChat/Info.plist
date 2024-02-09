@@ -47,7 +47,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>weMeet needs to access your camera to capture video</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>weMeet needs to access your microphone to capture voice</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -67,7 +67,7 @@
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>BootSplash.storyboard</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
