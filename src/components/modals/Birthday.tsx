@@ -21,9 +21,9 @@ const Birthday = forwardRef<Ref, Props>(({onChange}, ref) => {
             arrowColor: '#000000',
             dayTextColor: '#000000',
             textSectionTitleColor: '#b6c1cd',
-            selectedDayBackgroundColor: '#6657a9',
+            selectedDayBackgroundColor: '#E94057',
             selectedDayTextColor: '#ffffff',
-            todayTextColor: '#6657a9',
+            todayTextColor: '#E94057',
           }}
           renderHeader={date => (
             <View>

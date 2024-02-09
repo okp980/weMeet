@@ -27,7 +27,7 @@ const Message = forwardRef<Ref, Props>(({friendId}, ref) => {
           <View className="flex-1 py-2">
             <CustomText as="h3">Joy</CustomText>
             <View className="flex-row items-center gap-1">
-              <View className="h-[7px] w-[7px] rounded-full bg-[#6657a9]" />
+              <View className="h-[7px] w-[7px] rounded-full bg-[#E94057]" />
               <CustomText as="small" color="gray">
                 Online
               </CustomText>

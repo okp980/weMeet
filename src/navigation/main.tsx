@@ -7,6 +7,7 @@ import {
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // import {useFlipper} from '@react-navigation/devtools';
 import messaging from '@react-native-firebase/messaging';
+import BootSplash from 'react-native-bootsplash';
 
 import AuthNavigation from './auth/Auth';
 import {useAuth, useCustomTheme, useNotification} from '../hooks';
@@ -117,7 +118,12 @@ const Main = () => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <NavigationContainer ref={navigationRef} theme={color}>
+      <NavigationContainer
+        ref={navigationRef}
+        theme={color}
+        onReady={() => {
+          BootSplash.hide({fade: true});
+        }}>
         <StatusBar barStyle={'default'} />
         <Stack.Navigator
           initialRouteName={initialRoute}

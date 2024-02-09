@@ -24,7 +24,7 @@ const HomeNavigation = () => {
   if (isLoading)
     return (
       <View className="flex-1 items-center justify-center">
-        <ActivityIndicator size={'large'} color={'#6657a9'} />
+        <ActivityIndicator size={'large'} color={'#E94057'} />
       </View>
     );
 
@@ -50,7 +50,7 @@ const HomeNavigation = () => {
         options={({navigation}) => ({
           headerShown: true,
           headerShadowVisible: false,
-          // headerTintColor: '#6657a9',
+          // headerTintColor: '#E94057',
           headerBackVisible: false,
           headerTitleAlign: 'center',
           headerLeft: ({tintColor}) => (

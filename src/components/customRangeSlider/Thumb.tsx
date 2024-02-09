@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     borderRadius: THUMB_RADIUS_LOW,
     borderWidth: 2,
     borderColor: '#fff',
-    backgroundColor: '#6657a9',
+    backgroundColor: '#E94057',
   },
   rootHigh: {
     width: THUMB_RADIUS_HIGH * 2,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     borderRadius: THUMB_RADIUS_HIGH,
     borderWidth: 2,
     borderColor: '#fff',
-    backgroundColor: '#6657a9',
+    backgroundColor: '#E94057',
   },
 });
 

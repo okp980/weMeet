@@ -31,7 +31,7 @@ const Photo = ({navigation}: Props) => {
         <Progress.Bar
           progress={0.2}
           width={width - 80}
-          color="#6657a9"
+          color="#E94057"
           height={2}
           borderWidth={0}
           unfilledColor="white"

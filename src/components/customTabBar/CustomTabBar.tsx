@@ -27,17 +27,17 @@ export default function CustomTabBar({
         let icon;
         switch ((label as string).toLowerCase()) {
           case Navigation.HOME_SCREEN.toLowerCase():
-            icon = <Svg.Home fill={isFocused ? '#6657a9' : '#ADAFBB'} />;
+            icon = <Svg.Home fill={isFocused ? '#E94057' : '#ADAFBB'} />;
             break;
           case Navigation.MATCH_SCREEN.toLowerCase():
             icon = (
               <View>
                 <Svg.Heart
                   width={23}
-                  fill={isFocused ? '#6657a9' : '#ADAFBB'}
+                  fill={isFocused ? '#E94057' : '#ADAFBB'}
                 />
                 {hasMatchRequest && (
-                  <View className="bg-[#6657a9] h-3 w-3 justify-center items-center rounded-full absolute top-[6px] right-[-4px] border border-[#F3F3F3]" />
+                  <View className="bg-[#E94057] h-3 w-3 justify-center items-center rounded-full absolute top-[6px] right-[-4px] border border-[#F3F3F3]" />
                 )}
               </View>
             );
@@ -45,8 +45,8 @@ export default function CustomTabBar({
           case Navigation.CHAT_SCREEN.toLowerCase():
             icon = (
               <View>
-                <Svg.Message fill={isFocused ? '#6657a9' : '#ADAFBB'} />
-                <View className="bg-[#6657a9] h-4 w-4 justify-center items-center rounded-full absolute top-[-4px] right-[-4px] border border-[#F3F3F3]">
+                <Svg.Message fill={isFocused ? '#E94057' : '#ADAFBB'} />
+                <View className="bg-[#E94057] h-4 w-4 justify-center items-center rounded-full absolute top-[-4px] right-[-4px] border border-[#F3F3F3]">
                   <CustomText as="tiny" color="white">
                     5
                   </CustomText>
@@ -55,7 +55,7 @@ export default function CustomTabBar({
             );
             break;
           case Navigation.PROFILE_SCREEN.toLowerCase():
-            icon = <Svg.Person fill={isFocused ? '#6657a9' : '#ADAFBB'} />;
+            icon = <Svg.Person fill={isFocused ? '#E94057' : '#ADAFBB'} />;
             break;
 
           default:
@@ -106,7 +106,7 @@ export default function CustomTabBar({
               style={{
                 height: 2,
                 width: '60%',
-                backgroundColor: isFocused ? '#6657a9' : 'transparent',
+                backgroundColor: isFocused ? '#E94057' : 'transparent',
                 position: 'absolute',
                 top: 0,
               }}
