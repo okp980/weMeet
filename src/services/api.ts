@@ -13,9 +13,9 @@ interface CustomError {
   data: {message: string; statusCode: number};
   status: number;
 }
-
+const baseUrl = __DEV__ ? process.env.DEV_API_URL : process.env.STAGING_API_URL;
 const baseQuery = fetchBaseQuery({
-  baseUrl: process.env.API_URL,
+  baseUrl,
   prepareHeaders(headers, api) {
     const token = (api.getState() as RootState).auth.token;
 
