@@ -31,7 +31,7 @@ const NotificationToggle = (props: Props) => {
             width: 80,
             height: 35,
             radius: 20,
-            activeBackgroundColor: '#E94057',
+            activeBackgroundColor: '#6657a9',
             inActiveBackgroundColor: '#b4b8bb',
           }}
           thumbButton={{

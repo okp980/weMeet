@@ -2,7 +2,7 @@ export default {
   light: {
     dark: false,
     colors: {
-      primary: '#E94057',
+      primary: '#6657a9',
       background: '#F1F2F3',
       card: '#FFFFFF',
       text: '#1D1F22',
@@ -13,7 +13,7 @@ export default {
   dark: {
     dark: true,
     colors: {
-      primary: '#E94057',
+      primary: '#6657a9',
       background: '#1D1F22',
       card: '#43464E',
       text: '#FFFFFF',

@@ -43,7 +43,7 @@ const Profile = ({navigation}: any) => {
           <Button
             variant="outline"
             className="m-0 h-14 w-14"
-            startIcon={<Svg.Send fill={'#E94057'} />}
+            startIcon={<Svg.Send fill={'#6657a9'} />}
           />
         </View>
         <View className="mt-2">
@@ -138,8 +138,8 @@ const Profile = ({navigation}: any) => {
               style={[
                 styles.shadow,
                 {
-                  backgroundColor: '#E94057',
-                  shadowColor: '#E94057',
+                  backgroundColor: '#6657a9',
+                  shadowColor: '#6657a9',
                   shadowRadius: 10,
                   shadowOpacity: 0.25,
                 },

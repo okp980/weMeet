@@ -526,6 +526,8 @@ PODS:
     - React-jsi (= 0.72.7)
     - React-logger (= 0.72.7)
     - React-perflogger (= 0.72.7)
+  - RNBootSplash (5.3.0):
+    - React-Core
   - RNFastImage (8.6.3):
     - React-Core
     - SDWebImage (~> 5.11.1)
@@ -614,6 +616,7 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNBootSplash (from `../node_modules/react-native-bootsplash`)
   - RNFastImage (from `../node_modules/react-native-fast-image`)
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBMessaging (from `../node_modules/@react-native-firebase/messaging`)"
@@ -743,6 +746,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNBootSplash:
+    :path: "../node_modules/react-native-bootsplash"
   RNFastImage:
     :path: "../node_modules/react-native-fast-image"
   RNFBApp:
@@ -831,6 +836,7 @@ SPEC CHECKSUMS:
   React-runtimescheduler: b825f8f8193c2111e25381ce844d01c1c520994e
   React-utils: dc51e2c7c2e49d327b90771d8a7acc95918eb485
   ReactCommon: 4ef37cb61335f2c7a29225d754c06857b4cc6361
+  RNBootSplash: 73c2a97d761db234125638c24ad6da6d781d049d
   RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
   RNFBApp: 5ee688b07ed0fa692a3a8fd07df6d6ae41e4c3a0
   RNFBMessaging: c839473d12cbe1b042b29898177033de4214e932
@@ -846,6 +852,6 @@ SPEC CHECKSUMS:
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 4c3aa327e4a6a23eeacd71f61c81df1bcdf677d5
 
-PODFILE CHECKSUM: f0055eef8e58629a880fd54ab91bc9a556700b38
+PODFILE CHECKSUM: 38e07095eea727ca477bbbae2f77bf8331b351a8
 
 COCOAPODS: 1.14.3

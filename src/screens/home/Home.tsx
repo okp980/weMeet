@@ -42,7 +42,7 @@ const Home = ({navigation}: any) => {
   if (isLoading)
     return (
       <View className="flex-1 items-center justify-center">
-        <ActivityIndicator size={'small'} color={'#E94057'} />
+        <ActivityIndicator size={'small'} color={'#6657a9'} />
       </View>
     );
 
@@ -103,6 +103,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   likeBtn: {
-    backgroundColor: '#E94057',
+    backgroundColor: '#6657a9',
   },
 });

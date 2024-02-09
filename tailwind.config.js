@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#E94057',
+        primary: '#6657a9',
       },
       fontFamily: {
         noto: ['NotoSans'],

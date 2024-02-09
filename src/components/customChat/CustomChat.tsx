@@ -118,7 +118,7 @@ const CustomChat = ({friendId}: Props) => {
             <Send
               {...props}
               containerStyle={{borderWidth: 0}}
-              textStyle={{color: '#E94057'}}
+              textStyle={{color: '#6657a9'}}
             />
           )}
         />

@@ -52,7 +52,7 @@ const CustomSwiper = forwardRef<Ref, Props>((props, ref) => {
               <View
                 className="h-20 w-20  rounded-full items-center justify-center"
                 style={styles.shadow}>
-                <Svg.Times fill={'#E94057'} />
+                <Svg.Times fill={'#6657a9'} />
               </View>
             </LinearGradient>
           ),
@@ -72,7 +72,7 @@ const CustomSwiper = forwardRef<Ref, Props>((props, ref) => {
               <View
                 className="h-20 w-20  rounded-full items-center justify-center"
                 style={styles.shadow}>
-                <Svg.Heart fill={'#E94057'} width={30} height={30} />
+                <Svg.Heart fill={'#6657a9'} width={30} height={30} />
               </View>
             </LinearGradient>
           ),

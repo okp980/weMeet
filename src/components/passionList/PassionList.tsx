@@ -35,7 +35,7 @@ const PassionList = ({onSelectInterests}: Props) => {
             }
             startIcon={
               <Icon
-                fill={selectedInterests.includes(interest) ? '#fff' : '#E94057'}
+                fill={selectedInterests.includes(interest) ? '#fff' : '#6657a9'}
               />
             }
             onPress={() => handleSelectInterest(interest)}>
