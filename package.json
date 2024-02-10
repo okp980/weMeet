@@ -8,8 +8,8 @@
     "pod-install": "cd ios && pod install && cd ..",
     "clean:android": "cd android && ./gradlew clean && cd ..",
     "build:android-aab": "react-native build-android --mode=release",
-    "fastlane": "cd android && bundle exec fastlane [lane] && cd ..",
     "bundle-install": "cd android && bundle install && cd ..",
+    "deploy-android:beta": "cd android && bundle exec fastlane beta && cd ..",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest"

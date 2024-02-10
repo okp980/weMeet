@@ -16,7 +16,7 @@ const {Apple, Facebook, Google, Logo} = Svg;
 
 const SignIn = () => {
   const [signInWithSocial, {isLoading}] = useSignInWithSocialMutation();
-  const {authenticateUser, removeAuth, fcmToken} = useAuth();
+  const {authenticateUser, fcmToken} = useAuth();
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
@@ -74,23 +74,11 @@ const SignIn = () => {
             startIcon={
               <Google width={30} height={30} onPress={signIn} fill="white" />
             }
-            textStyle={'text-white'}>
+            textStyle={'text-white'}
+            onPress={signIn}>
             Sign in with Google
           </Button>
         </View>
-        {/* <View className="flex-row justify-around mt-8">
-          <TouchableOpacity className="rounded-2xl border border-gray-200 p-4">
-            <Facebook width={30} height={30} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={signIn}
-            className="rounded-2xl border border-gray-200 p-4">
-            <Google width={30} height={30} />
-          </TouchableOpacity>
-          <TouchableOpacity className="rounded-2xl border border-gray-200 p-4">
-            <Apple width={30} height={30} />
-          </TouchableOpacity>
-        </View> */}
       </View>
     </Layout>
   );
