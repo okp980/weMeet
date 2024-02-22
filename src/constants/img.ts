@@ -6,4 +6,5 @@ export default {
   WelcomeImg1: require('../assets/imgs/girl1.png'),
   WelcomeImg2: require('../assets/imgs/girl2.png'),
   WelcomeImg3: require('../assets/imgs/girl3.png'),
+  UserPlaceholder: require('../assets/imgs/user_placeholder.png'),
 };

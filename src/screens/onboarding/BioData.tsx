@@ -6,9 +6,9 @@ import {
   Platform,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {Button, CustomInput, Form, Layout} from '../../components';
+import {Button, CustomInput, CustomPicker, Layout} from '../../components';
 import {Controller, useForm} from 'react-hook-form';
-import {Navigation, Svg} from '../../constants';
+import {Img, Navigation, Svg} from '../../constants';
 import FastImage from 'react-native-fast-image';
 import {checkPermission, selectImage} from '../../helpers/utils';
 import {launchImageLibrary} from 'react-native-image-picker';
@@ -45,7 +45,7 @@ const BioData = ({navigation}: any) => {
         fullName: profile.name || '',
         age: profile.age || 18,
       });
-      setSelectedImageURI(`${AWS_S3_LINK}/${profile.image}`);
+      profile.image && setSelectedImageURI(`${AWS_S3_LINK}/${profile.image}`);
     }
     if (error) {
       showMessage({
@@ -66,15 +66,18 @@ const BioData = ({navigation}: any) => {
   const onSubmit = async (data: FormValues) => {
     const formData = new FormData();
 
-    console.log('submitting file', selectedImageURI);
-
-    if (selectedImageURI.trim() !== '') {
-      formData.append('image', {
-        uri: selectedImageURI,
-        name: 'image.jpg',
-        type: 'image/jpeg',
+    if (selectedImageURI.trim() === '') {
+      showMessage({
+        type: 'danger',
+        message: 'Please attach an image of yourself before submitting.',
       });
+      return;
     }
+    formData.append('image', {
+      uri: selectedImageURI,
+      name: 'image.jpg',
+      type: 'image/jpeg',
+    });
     formData.append('name', data.fullName);
     formData.append('age', data.age);
     try {
@@ -98,13 +101,11 @@ const BioData = ({navigation}: any) => {
         <Text className="font-bold text-3xl">Profile details</Text>
         <View className="mx-auto relative w-28 h-28 rounded-2xl">
           <FastImage
-            source={{
-              uri: selectedImageURI
-                ? selectedImageURI
-                : profile?.image
-                ? `${AWS_S3_LINK}/${profile?.image}`
-                : 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-            }}
+            source={
+              selectedImageURI || profile?.image
+                ? {uri: selectedImageURI ?? profile?.image}
+                : Img.UserPlaceholder
+            }
             className="w-28 h-28 rounded-2xl"
           />
           <TouchableOpacity onPress={handleSelectImage}>
@@ -133,15 +134,8 @@ const BioData = ({navigation}: any) => {
           <Controller
             control={control}
             name="age"
-            render={({field: {onChange, onBlur, value}}) => (
-              <CustomInput
-                label="Age"
-                onBlur={onBlur}
-                onChangeText={onChange}
-                value={value as unknown as string}
-                error={errors.age}
-                placeholder="23-01-1984"
-              />
+            render={({field: {onChange}}) => (
+              <CustomPicker label="Age" onChange={onChange} />
             )}
           />
           <Button
