@@ -1,5 +1,27 @@
-import {Svg} from '../constants';
+import {Image} from 'react-native';
+import {Img, Svg} from '../constants';
 import {getTwoDimensionalArray} from './utils';
+
+export const slides = [
+  {
+    imageUri: Image.resolveAssetSource(Img.WelcomeImg1).uri,
+    title: 'Algo',
+    subtitle:
+      'Users going through a vetting process to ensure you never match with bots.',
+  },
+  {
+    imageUri: Image.resolveAssetSource(Img.WelcomeImg2).uri,
+    title: 'Matches',
+    subtitle:
+      'We match you with people that have a large array of similar interests.',
+  },
+  {
+    imageUri: Image.resolveAssetSource(Img.WelcomeImg3).uri,
+    title: 'Premium',
+    subtitle:
+      'Sign up today and enjoy the first month of premium benefits on us.',
+  },
+];
 
 export const interests = [
   {

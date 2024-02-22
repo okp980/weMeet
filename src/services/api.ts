@@ -9,11 +9,13 @@ import {RootState} from '../store';
 import {clearAuth} from '../store/auth';
 import {Tag} from '../constants';
 
+import {DEV_API_URL, STAGING_API_URL} from '@env';
+
 interface CustomError {
   data: {message: string; statusCode: number};
   status: number;
 }
-const baseUrl = __DEV__ ? process.env.DEV_API_URL : process.env.STAGING_API_URL;
+const baseUrl = __DEV__ ? DEV_API_URL : STAGING_API_URL;
 const baseQuery = fetchBaseQuery({
   baseUrl,
   prepareHeaders(headers, api) {

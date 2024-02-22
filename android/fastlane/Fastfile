@@ -1,10 +1,10 @@
 default_platform(:android)
 
-before_all do
-  ensure_git_branch(branch: 'main')
-  ensure_git_status_clean
-  git_pull
-end
+# before_all do
+#   ensure_git_branch(branch: 'main')
+#   ensure_git_status_clean
+#   git_pull
+# end
 
 platform :android do
 
@@ -15,9 +15,20 @@ platform :android do
 
   desc "Submit a new Beta Build to Google Play"
   lane :beta do
-    # increment_version_code(app_project_dir:'./app')
+    # increment_version_code()
+    gradle(task: "clean bundleRelease")
+    upload_to_play_store_internal_app_sharing
+  end
+  
+  desc "Submit a new Beta Build to Firebase Distribution"
+  lane :distribute do
+    # increment_version_code()
     gradle(task: "clean assembleRelease")
-    upload_to_play_store(track: 'beta')
+    firebase_app_distribution(
+            app: "1:445986193855:android:9ab9ed729e94d38294e10a",
+            testers: "okpunorrex@gmail.com",
+            service_credentials_file: "wemeet-1701783793326-5df5e7df42d3.json"
+        )
   end
 
   desc "Deploy a new version to the Google Play"

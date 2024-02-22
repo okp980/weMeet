@@ -61,13 +61,6 @@ const SignIn = () => {
         <Logo width={108} height={100} />
       </View>
       <View className="flex-[.3] w-full ">
-        <View className="flex-row items-center justify-between mb-5">
-          <View className="h-[2px] w-1/3 bg-primary" />
-          <CustomText as="regular" color="#E94057">
-            Welcome
-          </CustomText>
-          <View className="h-[2px] w-1/3 bg-primary" />
-        </View>
         <View>
           <Button
             variant="primary"

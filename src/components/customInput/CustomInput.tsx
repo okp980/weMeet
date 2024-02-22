@@ -2,6 +2,7 @@ import {View, Text, TextInput, TextInputProps, ViewStyle} from 'react-native';
 import React from 'react';
 import {FieldError} from 'react-hook-form';
 import clsx from 'clsx';
+import {useCustomTheme} from '../../hooks';
 
 type Props = {
   label?: string;
@@ -17,6 +18,7 @@ const CustomInput = ({
   contentContainerClassName,
   ...props
 }: Props) => {
+  const {color} = useCustomTheme();
   return (
     <View className={clsx('mb-5', contentContainerClassName)}>
       <View
@@ -25,7 +27,9 @@ const CustomInput = ({
           inputClassName,
         )}>
         {label && (
-          <View className="absolute top-[-10px] left-6 bg-white px-2">
+          <View
+            className="absolute top-[-10px] left-6"
+            style={{backgroundColor: color.colors.background}}>
             <Text className="text-gray-400 text-sm">{label}</Text>
           </View>
         )}

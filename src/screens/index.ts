@@ -1,5 +1,6 @@
 // Auth
 export {default as SignIn} from './auth/SignIn';
+export {default as Welcome} from './auth/Welcome';
 
 // Onboarding
 export {default as BioData} from './onboarding/BioData';

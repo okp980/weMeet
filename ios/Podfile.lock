@@ -17,11 +17,19 @@ PODS:
     - React-Core (= 0.72.7)
     - React-jsi (= 0.72.7)
     - ReactCommon/turbomodule/core (= 0.72.7)
+  - Firebase/AppDistribution (10.19.0):
+    - Firebase/CoreOnly
+    - FirebaseAppDistribution (~> 10.19.0-beta)
   - Firebase/CoreOnly (10.19.0):
     - FirebaseCore (= 10.19.0)
   - Firebase/Messaging (10.19.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (~> 10.19.0)
+  - FirebaseAppDistribution (10.19.0-beta):
+    - FirebaseCore (~> 10.0)
+    - FirebaseInstallations (~> 10.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/UserDefaults (~> 7.8)
   - FirebaseCore (10.19.0):
     - FirebaseCoreInternal (~> 10.0)
     - GoogleUtilities/Environment (~> 7.12)
@@ -535,6 +543,10 @@ PODS:
   - RNFBApp (18.7.3):
     - Firebase/CoreOnly (= 10.19.0)
     - React-Core
+  - RNFBAppDistribution (18.8.0):
+    - Firebase/AppDistribution (= 10.19.0)
+    - React-Core
+    - RNFBApp
   - RNFBMessaging (18.7.3):
     - Firebase/Messaging (= 10.19.0)
     - FirebaseCoreExtension (= 10.19.0)
@@ -619,6 +631,7 @@ DEPENDENCIES:
   - RNBootSplash (from `../node_modules/react-native-bootsplash`)
   - RNFastImage (from `../node_modules/react-native-fast-image`)
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
+  - "RNFBAppDistribution (from `../node_modules/@react-native-firebase/app-distribution`)"
   - "RNFBMessaging (from `../node_modules/@react-native-firebase/messaging`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - "RNGoogleSignin (from `../node_modules/@react-native-google-signin/google-signin`)"
@@ -633,6 +646,7 @@ SPEC REPOS:
   trunk:
     - AppAuth
     - Firebase
+    - FirebaseAppDistribution
     - FirebaseCore
     - FirebaseCoreExtension
     - FirebaseCoreInternal
@@ -752,6 +766,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-fast-image"
   RNFBApp:
     :path: "../node_modules/@react-native-firebase/app"
+  RNFBAppDistribution:
+    :path: "../node_modules/@react-native-firebase/app-distribution"
   RNFBMessaging:
     :path: "../node_modules/@react-native-firebase/messaging"
   RNGestureHandler:
@@ -779,6 +795,7 @@ SPEC CHECKSUMS:
   FBLazyVector: 5fbbff1d7734827299274638deb8ba3024f6c597
   FBReactNativeSpec: 638095fe8a01506634d77b260ef8a322019ac671
   Firebase: 63ce8ece0d43743dc28eacac0c6867a2d7fd5a9d
+  FirebaseAppDistribution: bfe8523cb9f065a635224c6ed3e67f1797205d17
   FirebaseCore: dc5c7badf99d47613c52b2e3a57a64cd187f8554
   FirebaseCoreExtension: c08d14c7b22e07994e876d837e6f58642f340087
   FirebaseCoreInternal: b444828ea7cfd594fca83046b95db98a2be4f290
@@ -839,6 +856,7 @@ SPEC CHECKSUMS:
   RNBootSplash: 73c2a97d761db234125638c24ad6da6d781d049d
   RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
   RNFBApp: 5ee688b07ed0fa692a3a8fd07df6d6ae41e4c3a0
+  RNFBAppDistribution: 3c3be7d6769de1c7e3dd03a71e3e0f7cc2a56659
   RNFBMessaging: c839473d12cbe1b042b29898177033de4214e932
   RNGestureHandler: a5039da2ac028b073ae801289476060b34d559b1
   RNGoogleSignin: aac5c1ec73422109dec1da770247a1e410dcc620

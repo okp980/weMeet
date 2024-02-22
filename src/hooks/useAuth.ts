@@ -8,6 +8,8 @@ import {
   setFcmToken,
   clearFcmToken,
   selectFcmToken,
+  selectHasBeenWelcome,
+  setHasBeenWelcome,
 } from '../store/auth';
 import {useAppDispatch, useAppSelector} from '../store';
 
@@ -17,6 +19,7 @@ const useAuth = () => {
   const fcmToken = useAppSelector(selectFcmToken);
   const user = useAppSelector(selectUser);
   const hasOnboardedProfile = useAppSelector(selectHasOnboardedProfile);
+  const hasBeenWelcome = useAppSelector(selectHasBeenWelcome);
 
   function authenticateUser(token: string) {
     dispatch(authenticate({token}));
@@ -30,6 +33,10 @@ const useAuth = () => {
     dispatch(setFcmToken({fcmToken: token}));
   }
 
+  function welcome() {
+    dispatch(setHasBeenWelcome());
+  }
+
   function removeAuth() {
     dispatch(clearAuth());
   }
@@ -41,11 +48,13 @@ const useAuth = () => {
     fcmToken,
     user,
     hasOnboardedProfile,
+    hasBeenWelcome,
     compeleteProfileOnboarding,
     authenticateUser,
     removeAuth,
     addFcmToken,
     removeFcmToken,
+    welcome,
   };
 };
 

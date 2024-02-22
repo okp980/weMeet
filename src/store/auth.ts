@@ -12,6 +12,7 @@ const initialState: AuthState = {
   user: null,
   hasOnboardedProfile: false,
   fcmToken: null,
+  hasBeenWelcome: false,
 };
 
 const slice = createSlice({
@@ -31,6 +32,9 @@ const slice = createSlice({
     ) => {
       state.hasOnboardedProfile = onboarded;
     },
+    setHasBeenWelcome: state => {
+      state.hasBeenWelcome = true;
+    },
     setFcmToken: (state, {payload: {fcmToken}}: FcmTokenPayload) => {
       state.fcmToken = fcmToken;
     },
@@ -46,9 +50,12 @@ export const {
   setHasOnboardedProfile,
   setFcmToken,
   clearFcmToken,
+  setHasBeenWelcome,
 } = slice.actions;
 export const selectAuth = (state: RootState) => state.auth.token;
 export const selectUser = (state: RootState) => state.auth.user;
+export const selectHasBeenWelcome = (state: RootState) =>
+  state.auth.hasBeenWelcome;
 export const selectHasOnboardedProfile = (state: RootState) =>
   state.auth.hasOnboardedProfile;
 export const selectFcmToken = (state: RootState) => state.auth.fcmToken;

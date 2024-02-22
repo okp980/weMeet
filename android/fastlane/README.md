@@ -31,6 +31,14 @@ Runs all the tests
 
 Submit a new Beta Build to Google Play
 
+### android distribute
+
+```sh
+[bundle exec] fastlane android distribute
+```
+
+Submit a new Beta Build to Firebase Distribution
+
 ### android deploy
 
 ```sh

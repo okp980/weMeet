@@ -23,6 +23,7 @@ export interface AuthState {
   user: User | null;
   hasOnboardedProfile: boolean;
   fcmToken: string | null;
+  hasBeenWelcome: boolean;
 }
 
 export interface AuthPayload {
