@@ -4,21 +4,19 @@ import Button from '../button/Button';
 import {interests} from '../../helpers/data';
 
 type Props = {
-  onSelectInterests: (interests: string[]) => void;
+  selectedInterests: string[];
+  onSelectInterests: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
-const PassionList = ({onSelectInterests}: Props) => {
-  const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
-
+const PassionList = ({selectedInterests, onSelectInterests}: Props) => {
   const handleSelectInterest = (interest: string) => {
     const hasInterest = selectedInterests.includes(interest);
     if (hasInterest) {
       const newInterests = selectedInterests.filter(item => item !== interest);
-      setSelectedInterests(newInterests);
+      onSelectInterests(newInterests);
       return;
     }
-    setSelectedInterests(prev => [...prev, interest]);
-    onSelectInterests(selectedInterests);
+    onSelectInterests(prev => [...prev, interest]);
   };
 
   return (
@@ -28,7 +26,7 @@ const PassionList = ({onSelectInterests}: Props) => {
         data={interests}
         renderItem={({item: {Icon, interest}}) => (
           <Button
-            className="flex-1 mx-auto m-1 px-1"
+            className="flex-1 m-1 px-1"
             textStyle={'text-sm '}
             variant={
               selectedInterests.includes(interest) ? 'primary' : 'outline'

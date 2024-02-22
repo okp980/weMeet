@@ -3,6 +3,7 @@ import React from 'react';
 import {FieldError} from 'react-hook-form';
 import clsx from 'clsx';
 import {useCustomTheme} from '../../hooks';
+import CustomText from '../customText/CustomText';
 
 type Props = {
   label?: string;
@@ -30,13 +31,19 @@ const CustomInput = ({
           <View
             className="absolute top-[-10px] left-6"
             style={{backgroundColor: color.colors.background}}>
-            <Text className="text-gray-400 text-sm">{label}</Text>
+            <CustomText as="small">{label}</CustomText>
           </View>
         )}
-        <TextInput {...props} className="p-0" />
+        <TextInput
+          {...props}
+          className="p-0"
+          style={{color: color.colors.text, fontSize: 16}}
+        />
       </View>
       {error && (
-        <Text className="mt-1 text-red-600 text-xs">{error as string}</Text>
+        <CustomText as="tiny" className="mt-1 text-red-600">
+          {error as string}
+        </CustomText>
       )}
     </View>
   );
