@@ -41,7 +41,7 @@ const CustomPicker = ({label, onChange}: Props) => {
         <View
           className="absolute top-[-10px] left-6"
           style={{backgroundColor: color.colors.background}}>
-          <Text className="text-gray-400 text-sm">{label}</Text>
+          <CustomText as="small">{label}</CustomText>
         </View>
       </View>
       <DatePicker

@@ -1,6 +1,6 @@
 import {View, Text} from 'react-native';
 import React, {useState} from 'react';
-import {Button, Layout, PassionList} from '../../components';
+import {Button, CustomText, Layout, PassionList} from '../../components';
 import {usePassionMutation} from '../../services/modules/onboarding';
 import {showMessage} from 'react-native-flash-message';
 import {Navigation} from '../../constants';
@@ -24,7 +24,9 @@ const Passion = ({navigation}: Props) => {
     try {
       await updatePassion({passion: selectedInterests}).unwrap();
       compeleteProfileOnboarding();
-      navigation.navigate(Navigation.HOME_NAVIGATION, {
+      console.log('success');
+
+      navigation.navigate(Navigation.TAB_NAVIGATION, {
         path: Navigation.HOME_SCREEN,
       });
     } catch (error: any) {
@@ -36,24 +38,20 @@ const Passion = ({navigation}: Props) => {
     }
   };
 
-  const handleSelectInterest = (interests: string[]) => {
-    setSelectedInterests(interests);
-  };
   return (
-    <Layout className="justify-between px-5">
+    <Layout className="justify-between p-5">
       <View>
-        <Text className="font-bold text-3xl mb-2">Your interests</Text>
-        <Text className="text-black font-light">
+        <CustomText as="large">Your interests</CustomText>
+        <CustomText as="regular">
           Select a few of your interests and let everyone know what you’re
           passionate about.
-        </Text>
+        </CustomText>
       </View>
-      <PassionList onSelectInterests={handleSelectInterest} />
-      <Button
-        variant="primary"
-        className="mx-auto"
-        loading={isLoading}
-        onPress={onSubmit}>
+      <PassionList
+        selectedInterests={selectedInterests}
+        onSelectInterests={setSelectedInterests}
+      />
+      <Button variant="primary" loading={isLoading} onPress={onSubmit}>
         Continue
       </Button>
     </Layout>

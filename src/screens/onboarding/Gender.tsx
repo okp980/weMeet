@@ -1,6 +1,6 @@
 import {View, Text} from 'react-native';
 import React, {useState} from 'react';
-import {Button, Layout} from '../../components';
+import {Button, CustomText, Layout} from '../../components';
 import Svg from '../../constants/svg';
 import {useGenderMutation} from '../../services/modules/onboarding';
 import {showMessage} from 'react-native-flash-message';
@@ -34,8 +34,8 @@ const Gender = ({navigation}: Props) => {
   };
 
   return (
-    <Layout className="justify-between px-10">
-      <Text className="font-bold text-3xl">I am a</Text>
+    <Layout className="justify-between px-10 py-5">
+      <CustomText as="large">I am a</CustomText>
       <View>
         <Button
           variant={gender === 'male' ? 'primary' : 'outline'}

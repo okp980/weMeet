@@ -11,6 +11,7 @@ import {
 import React, {ReactElement} from 'react';
 import clsx from 'clsx';
 import {styled} from 'nativewind';
+import {useCustomTheme} from '../../hooks';
 
 type Props = {
   textStyle?: TextProps;
@@ -34,12 +35,18 @@ const Button = ({
   loading,
   ...props
 }: Props) => {
+  const {
+    color: {colors},
+    theme,
+  } = useCustomTheme();
   const btnClass = clsx(btnRoot, {
     ['bg-primary w-full']: variant === 'primary',
     ['bg-transparent border border-gray-200 w-full']: variant === 'outline',
     ['bg-[#fdecef] w-full']: variant === 'accent',
   });
   const textClass = clsx(textRoot, {
+    ['text-[#ffffff]']: variant === 'outline' && theme === 'dark',
+    ['text-black']: variant === 'outline' && theme === 'light',
     ['text-white']: variant === 'primary',
     ['text-primary']: variant === 'accent',
     ['text-center']: !startIcon && !endIcon,
@@ -58,7 +65,7 @@ const Button = ({
   if (variant === 'text') {
     return (
       <TouchableOpacity {...props} style={btnStyle}>
-        <Text style={textStyle}>{children}</Text>
+        <Text style={[textStyle, {color: colors.text}]}>{children}</Text>
       </TouchableOpacity>
     );
   }
@@ -67,8 +74,8 @@ const Button = ({
       <View
         className={clsx('flex-row w-full item-center justify-center gap-4')}>
         {startIcon && startIcon}
-        {/* <View className={clsx('flex-1')}> */}
-        <Text style={textStyle} className={textClass}>
+        {/* <View className={clsx('flex-1 items-center')}> */}
+        <Text style={[textStyle]} className={textClass}>
           {children}
         </Text>
         {/* </View> */}

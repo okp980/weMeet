@@ -6,7 +6,13 @@ import {
   Platform,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {Button, CustomInput, CustomPicker, Layout} from '../../components';
+import {
+  Button,
+  CustomInput,
+  CustomPicker,
+  CustomText,
+  Layout,
+} from '../../components';
 import {Controller, useForm} from 'react-hook-form';
 import {Img, Navigation, Svg} from '../../constants';
 import FastImage from 'react-native-fast-image';
@@ -97,8 +103,8 @@ const BioData = ({navigation}: any) => {
     <KeyboardAvoidingView
       style={{flex: 1}}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      <Layout className="justify-between px-10">
-        <Text className="font-bold text-3xl">Profile details</Text>
+      <Layout className="justify-between px-10 py-5">
+        <CustomText as="large">Profile details</CustomText>
         <View className="mx-auto relative w-28 h-28 rounded-2xl">
           <FastImage
             source={
